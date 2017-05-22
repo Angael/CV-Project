@@ -1,0 +1,42 @@
+.basic 
+{
+	background-color: red;
+	padding: 16px;
+	height:100%;
+	text-align: center;
+	border: white solid 2px;
+	
+}
+
+.some
+{
+	display: inline-block;
+}
+
+#right
+{
+	background-color: blue;
+}
+
+
+}
+
+
+
+#s6 img {-ms-transform: translate(50px, 100px); /* IE 9 */
+    -webkit-transform: translate(50px, 100px); /* Safari */
+    transform: translate(50px, 100px);
+    
+}
+
+#holder {
+	display: flex;
+}
+
+#holder > div {
+	width: 50%;
+	padding: 10px;
+}
+
+#holder > div:first-child {
+	margin-right: 20px;
