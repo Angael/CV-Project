@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+	<html lang="pl">
+	<meta charset="utf-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<title>Profile Page</title>
+</head>
+<body>
+	<div>
+		<h2>Your Profile</h2>
+		<div id="profile-container" class="tile" >
+			First Name: <span id="name"></span><br>
+			Second Name: <span id="name2"></span><br>
+			age: <span id="age"></span><br>
+			tel: <span id="tel"></span><br>
+			address: <span id="address"></span><br>
+			jobexperience: <span id="jobexperience"></span><br>
+			schools: <span id="schools"></span><br>
+			skills: <span id="skills"></span><br>
+			intrests: <span id="intrests"></span><br>
+			languages: <span id="languages"></span><br>
+		</div>
+
+	</div>
+</body>
+<script>
+	var jsonProfile = {
+        "name": "Krzysztof",
+        "name2": "Widacki",
+        "age": "19",
+        "tel": "123456789",
+        "address": "Warsaw Słoneczna 15",
+        "jobexperience": [
+            "Acaisoft", "Google", "Microsoft"
+        ],
+        "schools": [
+            "Acaisoft", "Google", "Microsoft"
+        ],
+        "skills": [
+            "breating", "holding two handed swords with one hand"
+        ],
+        "intrests": [
+            "Films", "Bikes"
+        ],
+        "languages": [{
+            "language": "english",
+            "proficiency": "master"
+        },
+            {
+                "language": "german",
+                "proficiency": "beginner"
+            }
+        ]
+    };
+
+	function updateProfile( json){
+        $("#name").text(json.name);
+        $("#name2").text(json.name2);
+        $("#age").text(json.age);
+        $("#tel").text(json.tel);
+        $("#address").text(json.address);
+        $("#jobexperience").text(json.jobexperience);
+        $("#schools").text(json.schools);
+        $("#skills").text(json.skills);
+        $("#intrests").text(json.intrests);
+        json.languages.forEach(function (value) {
+            $("#languages").append( value['language'] + " with proficiency: " +value["proficiency"] + "<br>" );
+        });
+	}
+
+    updateProfile(jsonProfile);
+</script>
+</html>

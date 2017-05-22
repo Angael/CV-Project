@@ -40,3 +40,6 @@
 
 #holder > div:first-child {
 	margin-right: 20px;
+}
+#profile-container span{color:red;
+}
