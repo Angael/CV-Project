@@ -9,7 +9,7 @@
 	<title>Profile Page</title>
 </head>
 <body>
-<div class="header"><img style="width:70px; height:70px;  border-radius:40px;" src="img/lo.jpg"/></div>
+<div class="header"><img style="display:block; transform:translate(5px, 5px); width:60px; height:60px;  border-radius:40px;" src="img/lo.jpg"/></div>
 	<div class="centered">
 		<h2>Your Profile</h2>
 		<form action>
@@ -23,29 +23,27 @@
 		</div>
 		<div class="section"><form>
 		<table><tr><h3>Edit your password:</h3></tr>
-			<tr><td>Enter old password: </td><td><input id="name"/><br></td></tr>
-			<tr><td>Enter new password: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Current password: </td><td><input id="name"/><br></td></tr>
+			<tr><td>New password: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Repeat new password: </td><td><input id="name2"/><br></td></tr>
 			<tr><td></td><td><input type="submit" value="Save"></td></tr>
 		</table></form>
 		</div>
 		<div class="section"><form>
 		<table><tr><h3>Edit your birth date:</h3></tr>
-			<tr><td>Birth Date: </td><td><input id="name"/><br></td></tr>
-			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
+			<tr><td>Birth Date: </td><td><input id="dateofbirth"/><br></td></tr>
 			<tr><td></td><td><input type="submit"></td></tr>
 		</table></form>
 		</div>
 		<div class="section"><form>
 		<table><tr><h3>Edit your address:</h3></tr>
-			<tr><td>Adress: </td><td><input id="name"/><br></td></tr>
-			<tr><td>Post-code: </td><td><input id="name2"/><br></td></tr>
-			<tr><td>City: </td><td><input id="name2"/><br></td></tr>
-			<tr><td>Country: </td><td><input id="name2"/><br></td></tr>
-			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
+			<tr><td>Adress: </td><td><input id="address"/><br></td></tr>
+			<tr><td>Post-code and City :</td><td><input id="address2"/><br></td></tr>
+			<tr><td>Country: </td><td><input id="country"/><br></td></tr>
 			<tr><td></td><td><input type="submit"></td></tr>
 		</table></form>
 		</div>
+		<!--
 		<div class="section"><form>
 		<table>
 			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
@@ -62,14 +60,16 @@
 			<tr><td>Intrests: </td><td><input id="intrests"/><br></td></tr>
 			<tr><td>Languages: </td><td><input id="languages" disabled/><br></td></tr>
 			<tr><input id="saveBtn" type="button" value="Save"/></td></tr>
-		</table>
+		</table>-->
 		</div>
+		
 		</form>
 	</div>
 	
 	<div class="footer"></div>
 </body>
 <script>
+	
     var jsonProfile = {
         "uid":2,
         "name": "Krzysztof",
@@ -82,7 +82,9 @@
         "address2": "Warsaw 02-540",
 		"country":"Poland",
         "jobexperience": [
-            "Acaisoft", "Google", "Microsoft"
+            {"company":"Acaisoft", "from":"12-12-2017", "to":"1-1-2018"},
+			{"company":"Google", "from":"12-12-2017", "to":"1-1-2018"},
+			{"company":"Microsoft", "from":"12-12-2017", "to":"1-1-2018"}
         ],
         "schools": [
 			{"company":"Acaisoft",
