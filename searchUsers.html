@@ -10,23 +10,40 @@
 <body>
 	<div>
 		<h2>Your Profile</h2>
+		<form action>
 		<div id="profile-container" class="tile" >
-			First Name: <span id="name"></span><br>
-			Second Name: <span id="name2"></span><br>
-			age: <span id="age"></span><br>
-			tel: <span id="tel"></span><br>
-			address: <span id="address"></span><br>
-			jobexperience: <span id="jobexperience"></span><br>
-			schools: <span id="schools"></span><br>
-			skills: <span id="skills"></span><br>
-			intrests: <span id="intrests"></span><br>
-			languages: <span id="languages"></span><br>
+			First Name: <input id="name"/><br>
+			Second Name: <input id="name2"/><br>
+			age: <input id="age"/><br>
+			tel: <input id="tel"/><br>
+			address: <input id="address"/><br>
+			jobexperience: <input id="jobexperience"/><br>
+			schools: <input id="schools"/><br>
+			skills: <input id="skills"/><br>
+			intrests: <input id="intrests"/><br>
+			languages: <input id="languages" disabled/><br>
+			<input id="saveBtn" type="button" value="Save"/>
 		</div>
-
+		</form>
 	</div>
 </body>
 <script>
-    var jsonProfile = {
+    var settings = {
+
+        "crossDomain": true,
+        "url": "https://reqres.in/api/users/3",
+        "method": "GET",
+        "headers": {
+            "cache-control": "no-cache",
+            "postman-token": "0554329c-c2fa-1524-9653-fc44f2a7c20c"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+
+	var jsonProfile = {
         "uid":2,
         "name": "Krzysztof",
         "name2": "Widacki",
@@ -56,7 +73,7 @@
             }
         ],
         "friends":[{
-            "uid":1,
+			"uid":1,
             "name": "Paweł",
             "name2": "Kłos"
         },
@@ -81,6 +98,28 @@
             $("#languages").append( value['language'] + " with proficiency: " +value["proficiency"] + "<br>" );
         });
 	}
+	$("#saveBtn").on("click", function(){
+        jsonProfile = {
+            "name": $("#name").val(),
+            "name2": $("#name2").val(),
+            "age": $("#age").val(),
+            "tel": $("#tel").val(),
+            "address": $("#address").val(),
+            "jobexperience": $("#jobexperience").val().split(","),
+            "schools": $("#schools").val().split(","),
+            "skills": $("#skills").val().split(","),
+            "intrests": $("#intrests").val().split(","),
+            "languages": [{
+                "language": "english",
+                "proficiency": "master"
+            },
+                {
+                    "language": "german",
+                    "proficiency": "beginner"
+                }
+            ]
+		}
+	});
 
     updateProfile(jsonProfile);
 </script>
