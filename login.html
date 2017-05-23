@@ -2,6 +2,7 @@
 <html lang="pl">
 <meta charset="utf-8" />
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link type="text/css" rel="stylesheet" href="style.css">
 <head>
 </head>
@@ -12,11 +13,11 @@
 	
 		<div id="left" class="some" >
 		<h2 class="fa">Logowanie:</h2>
-		<form>
+		<form id="signIn">
 		<table>
-			<tr><td>E-mail:</td><td><input id="loginEmail" type="text" /></td></tr>
-			<tr><td>Password:</td><td><input id="loginPass" type="text" /></td></tr>
-			<tr><td></td><td><input id="loginSubmit" type="submit" value="Zaloguj" /></td></tr>
+			<tr><td>E-mail:</td><td><input class="email" type="text" /></td></tr>
+			<tr><td>Password:</td><td><input class="pass" type="password" /></td></tr>
+			<tr><td></td><td><input class="submit" type="button" value="Zaloguj" /></td></tr>
 		</table>
 		</form>
 		</div>
@@ -25,12 +26,12 @@
 		
 		<div id="right" class="some" >
 		<h2 class="fa">Rejestracja:</h2>
-		<form>
+		<form id="signUp">
 		<table>
-			<tr><td>E-mail:</td><td><input id="registerEmail" type="text" /></td></tr>
-			<tr><td>Password:</td><td><input id="registerPass" type="text" /></td></tr>
-			<tr><td>Repeat password:</td><td><input id="registerPassRepeat" type="text" /></td></tr>
-			<tr><td></td><td><input id="registerSubmit" type="submit" value="Zarejestruj" /></td></tr>
+			<tr><td>E-mail:</td><td><input class="email" type="text" /></td></tr>
+			<tr><td>Password:</td><td><input class="pass" type="password" /></td></tr>
+			<tr><td>Repeat password:</td><td><input class="pass2" type="password" /></td></tr>
+			<tr><td></td><td><input class="submit" type="button" value="Zarejestruj" /></td></tr>
 		</table>
 		</form> 
 		</div>
@@ -42,23 +43,59 @@
 
 
 <script>
-	//Hard coded response from server
-    var jsonProfile = {
+	//Hard coded logins
+    var jsonLogins = [{
   		"login":"krzysztofwidacki@gmail.com",
 		"pass":"Start123"
-	};
+	},{
+        "login":"Start123",
+        "pass":"Start123"
+    }
+	];
 
     //When user clicks submit in login pane
-    $("#loginSubmit").on("click", function(){
+	//Try to log in:
+    $("#signIn .submit").on("click", function(){
         //Validate both fields
-		if($("")}){
+		//TODO: Fix validation of login when incorrect, might be bad
+        for (var i = 0, len = jsonLogins.length; i < len; i++) {
+            var loginCorrect = false;
+            //Check if login exists
+            if(jsonLogins[i].login.toLowerCase() === $("#signIn .email").val().toLowerCase() ){
+  				loginCorrect = true;
+				break;
+			}
+        }
 
+        if(jsonLogins[i].pass === $("#signIn .pass").val() ){
+			alert("Success!");
+		}else{
+            alert("Fail!");
 		}
-	}
-	);
-	function register(){
+	});
 
-	}
+
+
+	//On register click
+	//Try to register user
+	//TODO: Validate empty, invalid emails, empty passwords, have some requirements
+    $("#signUp .submit").on("click", function(){
+        //Check if
+        for (var i = 0, len = jsonLogins.length; i < len; i++) {
+            var emailExists = false;
+            if(jsonLogins[i].login.toLowerCase() === $("#signUp .email").val().toLowerCase() ){
+                emailExists = true;
+                alert("Email exists");
+                return;
+            }
+        }
+
+        if($("#signUp .pass").val() !== $("#signUp .pass2").val() ){
+            alert("Passwords are different!");
+        }else{
+            alert("Account created!");
+        }
+    });
 </script>
 
 </body>
