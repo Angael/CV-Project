@@ -12,23 +12,20 @@
 		<h2>Your Profile</h2>
 		<form action>
 		<div id="profile-container" class="tile" >
-			First Name: <input id="name"/><br>
-			Second Name: <input id="name2"/><br>
-			age: <input id="age"/><br>
-			tel: <input id="tel"/><br>
-			address: <input id="address"/><br>
-			jobexperience: <input id="jobexperience"/><br>
-			schools: <input id="schools"/><br>
-			skills: <input id="skills"/><br>
-			intrests: <input id="intrests"/><br>
-			languages: <input id="languages" disabled/><br>
-			<input id="saveBtn" type="button" value="Save"/>
+			Search User: <input id="searchInput"/><br>
+			<div id="searchResults-container">
+				<ul id="searchResults">
+
+				</ul>
+
+			</div>
+			<input id="searchBtn" type="button" value="Search"/>
 		</div>
 		</form>
 	</div>
 </body>
 <script>
-    var settings = {
+    /*var settings = {
 
         "crossDomain": true,
         "url": "https://reqres.in/api/users/3",
@@ -41,86 +38,57 @@
 
     $.ajax(settings).done(function (response) {
         console.log(response);
-    });
+    });*/
 
-	var jsonProfile = {
+    var allUsers = [{
         "uid":2,
         "name": "Krzysztof",
         "name2": "Widacki",
-        "age": "19",
         "email": "krzysztofwidacki@gmail.com",
-        "tel": "123456789",
-        "address": "Warsaw Słoneczna 15",
-        "jobexperience": [
-            "Acaisoft", "Google", "Microsoft"
-        ],
-        "schools": [
-            "Acaisoft", "Google", "Microsoft"
-        ],
-        "skills": [
-            "breating", "holding two handed swords with one hand"
-        ],
-        "intrests": [
-            "Films", "Bikes"
-        ],
-        "languages": [{
-            "language": "english",
-            "proficiency": "master"
-        },
-            {
-                "language": "german",
-                "proficiency": "beginner"
-            }
-        ],
-        "friends":[{
-			"uid":1,
-            "name": "Paweł",
-            "name2": "Kłos"
-        },
-            {
-                "uid":3,
-                "name": "Wojciech",
-                "name2": "Cejerowski"
-            }]
-    };
 
-	function updateProfile( json){
-        $("#name").text(json.name);
-        $("#name2").text(json.name2);
-        $("#age").text(json.age);
-        $("#tel").text(json.tel);
-        $("#address").text(json.address);
-        $("#jobexperience").text(json.jobexperience);
-        $("#schools").text(json.schools);
-        $("#skills").text(json.skills);
-        $("#intrests").text(json.intrests);
-        json.languages.forEach(function (value) {
-            $("#languages").append( value['language'] + " with proficiency: " +value["proficiency"] + "<br>" );
+    },{
+        "uid":1,
+        "name": "Paweł",
+        "name2": "Kłos",
+        "email": "98asdjwofapixjc@gmail.com",
+
+    },{
+        "uid":3,
+        "name": "Wojciech",
+        "name2": "Cejerowski",
+        "email": "someCejerowski@gmail.com",
+
+    },{
+        "uid":4,
+        "name": "Krzysztof",
+        "name2": "Orecki",
+        "email": "some@gmail.com",
+
+    },
+	];
+    //var result = $.grep(allUsers, function(e){ return e.name == "Krzysztof"; });
+    function searchUser(value){
+        var result = $.grep(allUsers, function(e){
+            var isFound = (e.name.toLowerCase() === value.toLowerCase()) || (e.name2.toLowerCase() === value.toLowerCase()) || (e.email.toLowerCase() === value.toLowerCase());
+            return isFound;
         });
+		console.log(result);
+		var list ="";
+        result.forEach(function(val){
+            list += "<li><a href='user/" + val.uid + "'>" + val.name +" "+ val.name2 + "</a></li>";
+
+		})
+        $("#searchResults").html(list);
+
 	}
-	$("#saveBtn").on("click", function(){
-        jsonProfile = {
-            "name": $("#name").val(),
-            "name2": $("#name2").val(),
-            "age": $("#age").val(),
-            "tel": $("#tel").val(),
-            "address": $("#address").val(),
-            "jobexperience": $("#jobexperience").val().split(","),
-            "schools": $("#schools").val().split(","),
-            "skills": $("#skills").val().split(","),
-            "intrests": $("#intrests").val().split(","),
-            "languages": [{
-                "language": "english",
-                "proficiency": "master"
-            },
-                {
-                    "language": "german",
-                    "proficiency": "beginner"
-                }
-            ]
-		}
+
+
+
+	$("#searchBtn").on("click", function(){
+        //console.log(result);
+        searchUser($("#searchInput").val());
 	});
 
-    updateProfile(jsonProfile);
+
 </script>
 </html>
