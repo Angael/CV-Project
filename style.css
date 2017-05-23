@@ -99,10 +99,21 @@ input
 #profile-container span{color:red;
 } 
 #searchResults-container{
-	display:inline-block;
-	margin:16px;
+	position:absolute;
+	/**top:50px;*/
+	min-width: 160px;
+	min-height:0px;
 	background:white;
-	min-width:500px;
-	min-height:200px;
 	color:black;
+}
+#searchInput{
+	width:500px;
+}
+#searchResults-container a{
+display:block;
+	padding:8px;
+}
+#search-container{
+	position:relative;
+	display:inline-block;
 }
