@@ -52,7 +52,19 @@ input
 	font-family: 'Roboto Slab', serif;
 }
 
+input[type=button], input[type=submit]
+{
+	background-color: #034f84;
+	color: white;
+}
 
+table{
+	width: 100%;
+}
+input .centered
+{
+	
+}
 .some
 {
 	display: inline-block;
@@ -133,8 +145,11 @@ background-color: rgb(245,245,245);
 max-width: 600px;
 padding: 40px;
 border-radius: 15px;
+padding-bottom:40px;
 
 }
+
+
 
 .section{border:2px solid #2d3333;
 	color: black;
@@ -159,8 +174,22 @@ padding: 15px;
 }
 
 #searchInput{
-	width:500px;
+	width:100px;
+	padding-left: 40px;
+	background-color: white;
+    background-image: url('img/sera.png');
+    background-position: 10px 7px; 
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
+
+#searchInput:focus
+{
+width: 500px;
+}
+
 #searchResults-container a{
 display:block;
 	padding:8px;
