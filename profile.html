@@ -26,10 +26,12 @@
 	</div>
 </body>
 <script>
-	var jsonProfile = {
+    var jsonProfile = {
+        "uid":2,
         "name": "Krzysztof",
         "name2": "Widacki",
         "age": "19",
+        "email": "krzysztofwidacki@gmail.com",
         "tel": "123456789",
         "address": "Warsaw Słoneczna 15",
         "jobexperience": [
@@ -52,7 +54,17 @@
                 "language": "german",
                 "proficiency": "beginner"
             }
-        ]
+        ],
+        "friends":[{
+            "uid":1,
+            "name": "Paweł",
+            "name2": "Kłos"
+        },
+            {
+                "uid":3,
+                "name": "Wojciech",
+                "name2": "Cejerowski"
+            }]
     };
 
 	function updateProfile( json){

@@ -62,36 +62,65 @@
 		</div>
 		</form>
 	</div>
-	<div class="footer"></div>
+	
+	<footer></footer>
 </body>
 <script>
-	var jsonProfile = {
+    var jsonProfile = {
+        "uid":2,
         "name": "Krzysztof",
         "name2": "Widacki",
-        "age": "19",
+        "dateofbirth": "19-04-1998",
+		"birthofaccount":"21-04-1998",
+        "email": "krzysztofwidacki@gmail.com",
         "tel": "123456789",
-        "address": "Warsaw Słoneczna 15",
+        "address": "Słoneczna 15",
+        "address2": "Warsaw 02-540",
+		"country":"Poland",
         "jobexperience": [
             "Acaisoft", "Google", "Microsoft"
         ],
         "schools": [
-            "Acaisoft", "Google", "Microsoft"
+			{"company":"Acaisoft",
+				"from":"1-12-1212",
+				"to":"2-12-1212"},
+            {"company":"Google",
+                "from":"1-12-1212",
+                "to":"2-12-1212"},
+            {"company":"Makrohard",
+                "from":"2-11-1318",
+                "to":"2-1-1290"}
         ],
         "skills": [
             "breating", "holding two handed swords with one hand"
         ],
-        "intrests": [
-            "Films", "Bikes"
-        ],
-        "languages": [{
-            "language": "english",
-            "proficiency": "master"
+		"acomplishments":{
+            "intrests": [
+                "Films", "Bikes"
+            ],
+			"projects":[],
+			"courses":[],
+			"certificates":[],
+            "languages": [{
+                "language": "english",
+                "proficiency": "master"
+            },
+			{
+				"language": "german",
+				"proficiency": "beginner"
+			}
+            ]
+		},
+        "friends":[{
+            "uid":1,
+            "name": "Paweł",
+            "name2": "Kłos"
         },
-            {
-                "language": "german",
-                "proficiency": "beginner"
-            }
-        ]
+		{
+			"uid":3,
+			"name": "Wojciech",
+			"name2": "Cejerowski"
+		}]
     };
 
 	function updateProfile( json){
@@ -109,26 +138,17 @@
         });
 	}
 	$("#saveBtn").on("click", function(){
-        jsonProfile = {
-            "name": $("#name").val(),
-            "name2": $("#name2").val(),
-            "age": $("#age").val(),
-            "tel": $("#tel").val(),
-            "address": $("#address").val(),
-            "jobexperience": $("#jobexperience").val().split(","),
-            "schools": $("#schools").val().split(","),
-            "skills": $("#skills").val().split(","),
-            "intrests": $("#intrests").val().split(","),
-            "languages": [{
-                "language": "english",
-                "proficiency": "master"
-            },
-                {
-                    "language": "german",
-                    "proficiency": "beginner"
-                }
-            ]
-		}
+		jsonProfile.name = $("#name").val();
+        jsonProfile.name2 = $("#name2").val();
+        jsonProfile.age = $("#age").val();
+        jsonProfile.tel = $("#tel").val();
+        jsonProfile.address = $("#address").val();
+        jsonProfile.jobexperience = $("#jobexperience").val().split(",");
+        jsonProfile.schools = $("#schools").val().split(",");
+        jsonProfile.skills = $("#skills").val().split(",");
+        jsonProfile.intrests = $("#intrests").val().split(",");
+
+
 	});
 
     updateProfile(jsonProfile);

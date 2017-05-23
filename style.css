@@ -1,8 +1,15 @@
-
+html
+{min-height:100%;}
 body
 {	font-size: 20px;
 	margin:0;
 	background-image: url("img/4.png");
+	padding-bottom:50px;
+	position: relative;
+
+	
+	
+
 	/* Background pattern from Subtle Patterns */
 }
 .header
@@ -15,23 +22,21 @@ body
 
 #logo
 {
-	position: absolute;
-	transform: translate(-50%,-50%);
-	top:20%;
-	left:50%;
+	
 	color: white;
 	font-size: 65px;
 	text-align: center;
 }
 
-.footer
+footer
 {
-	position: relative;
+	position: absolute;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	height: 50px;
 	background-color: #034f84;
+	text-align: center;
 }
 
 input
@@ -76,11 +81,31 @@ input
 #holder
 {
 	
-	display: flex;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	margin:auto;
+	
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+#wraphold
+{
+	
 }
 
 
@@ -120,3 +145,12 @@ text-align:right;
 }
 
 
+
+#searchResults-container{
+	display:inline-block;
+	margin:16px;
+	background:white;
+	min-width:500px;
+	min-height:200px;
+	color:black;
+}

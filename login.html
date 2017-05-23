@@ -7,15 +7,15 @@
 <body>
 <div class="header">  </div>
 <div id="logo"><h1>Lubie Placki</h1></div>
-	<div id="holder">
+	<div id="wraphold" ><div id="holder">
 	
 		<div id="left" class="some" >
 		<h2 class="fa">Logowanie:</h2>
 		<form>
 		<table>
-			<tr><td>E-mail:</td><td><input type="text" /></td></tr>
-			<tr><td>Password:</td><td><input type="text" /></td></tr>
-			<tr><td></td><td><input type="submit" value="Zaloguj" /></td></tr>
+			<tr><td>E-mail:</td><td><input id="loginEmail" type="text" /></td></tr>
+			<tr><td>Password:</td><td><input id="loginPass" type="text" /></td></tr>
+			<tr><td></td><td><input id="loginSubmit" type="submit" value="Zaloguj" /></td></tr>
 		</table>
 		</form>
 		</div>
@@ -26,16 +26,40 @@
 		<h2 class="fa">Rejestracja:</h2>
 		<form>
 		<table>
-			<tr><td>E-mail:</td><td><input type="text" /></td></tr>
-			<tr><td>Password:</td><td><input type="text" /></td></tr>
-			<tr><td>Repeat password:</td><td><input type="text" /></td></tr>
-			<tr><td></td><td><input type="submit" value="Zarejestruj" /></td></tr>
+			<tr><td>E-mail:</td><td><input id="registerEmail" type="text" /></td></tr>
+			<tr><td>Password:</td><td><input id="registerPass" type="text" /></td></tr>
+			<tr><td>Repeat password:</td><td><input id="registerPassRepeat" type="text" /></td></tr>
+			<tr><td></td><td><input id="registerSubmit" type="submit" value="Zarejestruj" /></td></tr>
 		</table>
 		</form> 
 		</div>
 		
-	</div>
-<div class="footer">  </div>
+	</div></div>
+
+<footer>  </footer>
+
+
+
+<script>
+	//Hard coded response from server
+    var jsonProfile = {
+  		"login":"krzysztofwidacki@gmail.com",
+		"pass":"Start123"
+	};
+
+    //When user clicks submit in login pane
+    $("#loginSubmit").on("click", function(){
+        //Validate both fields
+		if($("")}){
+
+		}
+	}
+	);
+	function register(){
+
+	}
+</script>
+
 </body>
 
 

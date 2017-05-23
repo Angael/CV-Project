@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<head>
+	<html lang="pl">
+	<meta charset="utf-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<title>Profile Page</title>
+</head>
+<body>
+	<div>
+		<h2>Your Profile</h2>
+		<form action>
+		<div id="profile-container" class="tile" >
+			Search User: <input id="searchInput"/><br>
+			<div id="searchResults-container">
+				<ul id="searchResults">
+
+				</ul>
+
+			</div>
+			<input id="searchBtn" type="button" value="Search"/>
+		</div>
+		</form>
+	</div>
+</body>
+<script>
+    /*var settings = {
+
+        "crossDomain": true,
+        "url": "https://reqres.in/api/users/3",
+        "method": "GET",
+        "headers": {
+            "cache-control": "no-cache",
+            "postman-token": "0554329c-c2fa-1524-9653-fc44f2a7c20c"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });*/
+
+    var allUsers = [{
+        "uid":2,
+        "name": "Krzysztof",
+        "name2": "Widacki",
+        "email": "krzysztofwidacki@gmail.com",
+
+    },{
+        "uid":1,
+        "name": "Paweł",
+        "name2": "Kłos",
+        "email": "98asdjwofapixjc@gmail.com",
+
+    },{
+        "uid":3,
+        "name": "Wojciech",
+        "name2": "Cejerowski",
+        "email": "someCejerowski@gmail.com",
+
+    },{
+        "uid":4,
+        "name": "Krzysztof",
+        "name2": "Orecki",
+        "email": "some@gmail.com",
+
+    },
+	];
+    //var result = $.grep(allUsers, function(e){ return e.name == "Krzysztof"; });
+    function searchUser(value){
+        var result = $.grep(allUsers, function(e){
+            var isFound = (e.name.toLowerCase() === value.toLowerCase()) || (e.name2.toLowerCase() === value.toLowerCase()) || (e.email.toLowerCase() === value.toLowerCase());
+            return isFound;
+        });
+		console.log(result);
+		var list ="";
+        result.forEach(function(val){
+            list += "<li><a href='user/" + val.uid + "'>" + val.name +" "+ val.name2 + "</a></li>";
+
+		})
+        $("#searchResults").html(list);
+
+	}
+
+
+
+	$("#searchBtn").on("click", function(){
+        //console.log(result);
+        searchUser($("#searchInput").val());
+	});
+
+
+</script>
+</html>
