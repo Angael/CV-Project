@@ -11,16 +11,13 @@
 	<div>
 		<h2>Your Profile</h2>
 		<form action>
-		<div id="profile-container" class="tile" >
-			Search User: <input id="searchInput"/><br>
+
+			Search User: <div id="search-container" class="tile" ><input id="searchInput" autocomplete="off"/><br>
 			<div id="searchResults-container">
-				<ul id="searchResults">
-
-				</ul>
-
 			</div>
-			<input id="searchBtn" type="button" value="Search"/>
+
 		</div>
+			<input id="searchBtn" type="button" value="Search"/>
 		</form>
 	</div>
 </body>
@@ -69,16 +66,16 @@
     //var result = $.grep(allUsers, function(e){ return e.name == "Krzysztof"; });
     function searchUser(value){
         var result = $.grep(allUsers, function(e){
-            var isFound = (e.name.toLowerCase() === value.toLowerCase()) || (e.name2.toLowerCase() === value.toLowerCase()) || (e.email.toLowerCase() === value.toLowerCase());
+            var isFound = ((e.name.toLowerCase() +" "+ e.name2.toLowerCase() + " " + e.email.toLowerCase()).match(new RegExp(value, 'gi')));
             return isFound;
         });
-		console.log(result);
+		//console.log(result);
 		var list ="";
         result.forEach(function(val){
-            list += "<li><a href='user/" + val.uid + "'>" + val.name +" "+ val.name2 + "</a></li>";
+            list += "<a href='user/" + val.uid + "'>" + val.name +" "+ val.name2 + "</a>";
 
-		})
-        $("#searchResults").html(list);
+		});
+        $("#searchResults-container").html(list);
 
 	}
 
@@ -88,7 +85,10 @@
         //console.log(result);
         searchUser($("#searchInput").val());
 	});
-
+    $("#searchInput").on("keyup", function(){
+        //console.log(result);
+        searchUser($("#searchInput").val());
+    });
 
 </script>
 </html>
