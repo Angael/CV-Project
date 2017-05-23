@@ -3,51 +3,55 @@
 <head>
 	<html lang="pl">
 	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="style.css">
 	<title>Profile Page</title>
 </head>
 <body>
-<div class="header"></div>
+<div class="header"><img style="width:70px; height:70px;  border-radius:40px;" src="img/lo.jpg"/></div>
 	<div class="centered">
 		<h2>Your Profile</h2>
 		<form action>
 		<div id="profile-container" class="tile" >
-		<div class="section">
-		<table>
+		<div class="section"><form>
+		<table><tr><h3>Change your name:</h3></tr>
 			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
 			<tr><td></td><td><input type="submit" value="save"></td></tr>
-		</table>
+		</table></form>
 		</div>
-		<div class="section">
-		<table>
+		<div class="section"><form>
+		<table><tr><h3>Change your password:</h3></tr>
 			<tr><td>Enter old password: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Enter new password: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Repeat new password: </td><td><input id="name2"/><br></td></tr>
 			<tr><td></td><td><input type="submit"></td></tr>
-		</table>
+		</table></form>
 		</div>
-		<div class="section">
-		<table>
+		<div class="section"><form>
+		<table><tr><h3>Change your birth date:</h3></tr>
 			<tr><td>Birth Date: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
 			<tr><td></td><td><input type="submit"></td></tr>
-		</table>
+		</table></form>
 		</div>
-		<div class="section">
+		<div class="section"><form>
+		<table><tr><h3>Change your address:</h3></tr>
+			<tr><td>Adress: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Post-code: </td><td><input id="name2"/><br></td></tr>
+			<tr><td>City: </td><td><input id="name2"/><br></td></tr>
+			<tr><td>Country: </td><td><input id="name2"/><br></td></tr>
+			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
+			<tr><td></td><td><input type="submit"></td></tr>
+		</table></form>
+		</div>
+		<div class="section"><form>
 		<table>
 			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
 			<tr><td></td><td><input type="submit"></td></tr>
-		</table>
-		</div>
-		<div class="section">
-		<table>
-			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
-			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
-			<tr><td></td><td><input type="submit"></td></tr>
-		</table>
+		</table></form>
 		</div>
 			<tr><td>Age: </td><td><input id="age"/><br></td></tr>
 			<tr><td>Tel: </td><td><input id="tel"/><br></td></tr>
@@ -63,7 +67,7 @@
 		</form>
 	</div>
 	
-	<footer></footer>
+	<div class="footer"></div>
 </body>
 <script>
     var jsonProfile = {
