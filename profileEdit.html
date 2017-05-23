@@ -8,24 +8,61 @@
 	<title>Profile Page</title>
 </head>
 <body>
-	<div>
+<div class="header"></div>
+	<div class="centered">
 		<h2>Your Profile</h2>
 		<form action>
 		<div id="profile-container" class="tile" >
-			First Name: <input id="name"/><br>
-			Second Name: <input id="name2"/><br>
-			age: <input id="age"/><br>
-			tel: <input id="tel"/><br>
-			address: <input id="address"/><br>
-			jobexperience: <input id="jobexperience"/><br>
-			schools: <input id="schools"/><br>
-			skills: <input id="skills"/><br>
-			intrests: <input id="intrests"/><br>
-			languages: <input id="languages" disabled/><br>
-			<input id="saveBtn" type="button" value="Save"/>
+		<div class="section">
+		<table>
+			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
+			<tr><td></td><td><input type="submit" value="save"></td></tr>
+		</table>
+		</div>
+		<div class="section">
+		<table>
+			<tr><td>Enter old password: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Enter new password: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Repeat new password: </td><td><input id="name2"/><br></td></tr>
+			<tr><td></td><td><input type="submit"></td></tr>
+		</table>
+		</div>
+		<div class="section">
+		<table>
+			<tr><td>Birth Date: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
+			<tr><td></td><td><input type="submit"></td></tr>
+		</table>
+		</div>
+		<div class="section">
+		<table>
+			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
+			<tr><td></td><td><input type="submit"></td></tr>
+		</table>
+		</div>
+		<div class="section">
+		<table>
+			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
+			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
+			<tr><td></td><td><input type="submit"></td></tr>
+		</table>
+		</div>
+			<tr><td>Age: </td><td><input id="age"/><br></td></tr>
+			<tr><td>Tel: </td><td><input id="tel"/><br></td></tr>
+			<tr><td>Address: </td><td><input id="address"/><br></td></tr>
+			<tr><td>Job Experience: </td><td><input id="jobexperience"/><br></td></tr>
+			<tr><td>Schools: </td><td><input id="schools"/><br></td></tr>
+			<tr><td>Skills: </td><td><input id="skills"/><br></td></tr>
+			<tr><td>Intrests: </td><td><input id="intrests"/><br></td></tr>
+			<tr><td>Languages: </td><td><input id="languages" disabled/><br></td></tr>
+			<tr><input id="saveBtn" type="button" value="Save"/></td></tr>
+		</table>
 		</div>
 		</form>
 	</div>
+	<div class="footer"></div>
 </body>
 <script>
 	var jsonProfile = {

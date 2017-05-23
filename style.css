@@ -1,15 +1,11 @@
-.basic 
-{
-	
-}
 
 body
 {	font-size: 20px;
 	margin:0;
-	background-image: url("img/1.png");
+	background-image: url("img/4.png");
 	/* Background pattern from Subtle Patterns */
 }
-#header
+.header
 {	
 	
 	width: 100%;
@@ -28,9 +24,9 @@ body
 	text-align: center;
 }
 
-#footer
+.footer
 {
-	position: absolute;
+	position: relative;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -41,7 +37,7 @@ body
 input
 {
 	
-	border: 1px solid #ddd;
+	border: 1px solid #999;
 	border-radius: 5px;
 	font-size: 20px;
 	background-color: #efefef;
@@ -77,7 +73,8 @@ input
 }
 
 
-#holder {
+#holder
+{
 	
 	display: flex;
 	position: absolute;
@@ -86,14 +83,40 @@ input
 	transform: translate(-50%,-50%);
 }
 
-#holder > div {
-	width: 50%;
-	
-	
-}
 
-#holder > div:first-child {
+
+#holder > div:first-child 
+{
 	margin-right: 20px;
 }
-#profile-container span{color:red;
+
+#profile-container span
+{
+	color:red;
 } 
+
+
+.centered{
+position: static;
+margin-top: 20px; 
+margin-bottom: 20px; 
+margin-left: auto;
+margin-right: auto;
+background-color: rgb(245,245,245);
+max-width: 600px;
+padding: 40px;
+
+}
+
+.section{border:2px solid #2d3333;
+	color: black;
+background-color: rgb(233,233,233);
+/* Background pattern from Subtle Patterns */
+border-radius: 20px;
+margin-bottom: 16px;
+padding: 15px;
+text-align:right;
+
+}
+
+
