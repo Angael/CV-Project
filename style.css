@@ -50,6 +50,7 @@ input
 	color: #666;
 	padding: 10px;
 	font-family: 'Roboto Slab', serif;
+	box-sizing: border-box;
 }
 
 input[type=button], input[type=submit]
@@ -126,7 +127,7 @@ table{
 	margin-right: 20px;
 }
 
-#profile-container span
+#profile-container span:not([class])
 {
 	color:red;
 } 
@@ -196,3 +197,42 @@ display:block;
 	display:inline-block;
 }
 
+.objectInArray{
+	background: rgb(207, 207, 207);
+	padding:12px;
+	margin:12px;
+	border:solid 1px rgb(92, 92, 92);
+	border-radius:5px;
+}
+
+.objectInArray .line{
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: flex-start;
+	justify-content: flex-start;
+	-webkit-align-content: stretch;
+	-ms-flex-line-pack: stretch;
+	align-content: stretch;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+}
+.objectInArray .line .key{
+	display:inline-block;
+	text-align: left;
+	margin-right:15px;
+	color : black;
+}
+.objectInArray .line .value{
+	display:inline-block;
+	text-align: left;
+	color: rgb(37, 96, 33);
+ }
