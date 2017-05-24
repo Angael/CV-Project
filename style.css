@@ -50,6 +50,7 @@ input
 	color: #666;
 	padding: 10px;
 	font-family: 'Roboto Slab', serif;
+	box-sizing: border-box;
 }
 
 input[type=button], input[type=submit]
