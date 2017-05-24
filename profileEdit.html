@@ -12,7 +12,7 @@
 <div class="header"><img style="display:block; transform:translate(5px, 5px); width:60px; height:60px;  border-radius:40px;" src="img/lo.jpg"/></div>
 	<div class="centered">
 		<h2>Edit Your Profile</h2>
-		<form action>
+
 		<div id="profile-container" class="tile" >
 		<div class="section"><form>
 		<table><tr><h3>Edit your name:</h3></tr>
@@ -43,140 +43,36 @@
 			<tr><td></td><td><input type="button" value="Save"></td></tr>
 		</table></form>
 		</div>
-			"jobexperience": [
-			{"company":"Acaisoft", "from":"12-12-2017", "to":"1-1-2018"},
-			{"company":"Google", "from":"12-12-2017", "to":"1-1-2018"},
-			{"company":"Microsoft", "from":"12-12-2017", "to":"1-1-2018"}
-			]<div class="section"><form>
+
+		<div class="section"><form id="jobexperienceform">
 			<table><tr><h3>Add job experience:</h3></tr>
-				<tr><td>Company name: </td><td><input id="companyName"/><br></td></tr>
-				<tr><td>From date (dd-mm-yyyy):</td><td><input id="companyFrom"/><br></td></tr>
-				<tr><td>To date (dd-mm-yyyy): </td><td><input id="companyTo"/><br></td></tr>
-				<tr><td></td><td><input type="button" value="+ Add"></td></tr>
+				<tr><td>Company name: </td><td><input name="company" id="companyName"/><br></td></tr>
+				<tr><td>From date (dd-mm-yyyy):</td><td><input name="from" id="companyFrom"/><br></td></tr>
+				<tr><td>To date (dd-mm-yyyy): </td><td><input name="to" id="companyTo"/><br></td></tr>
+				<tr><td></td><td><input type="button" onclick="addObjectToArray('jobexperienceform',jsonProfile.jobexperience, 'jobexperiencelist')" value="+ Add"></td></tr>
 			</table></form>
-			<div id="jobexperiencelist">
-				<div class="objectInArray">
-					<div class="line"><span class="key"> Company Name:</span><span class="value">"acaisfot"</span></div>
-					<div class="line"><span class="key">From:</span><span class="value">"1-11-11111"</span></div>
-					<div class="line"><span class="key">Name:</span><span class="value">"acaisfot"</span></div>
-				</div>
+			<div id="jobexperiencelist" data-json="jobexperience"></div>
+		</div>
+
+			<div class="section"><form id="schoolsform">
+				<table><tr><h3>Add finished school:</h3></tr>
+					<tr><td>School name: </td><td><input name="name" id="schoolName"/><br></td></tr>
+					<tr><td>From date (dd-mm-yyyy):</td><td><input name="from" id="schoolFrom"/><br></td></tr>
+					<tr><td>To date (dd-mm-yyyy): </td><td><input name="to" id="schoolTo"/><br></td></tr>
+					<tr><td></td><td><input type="button" onclick="addObjectToArray('schoolsform',jsonProfile.schools, 'schoolslist')" value="+ Add"></td></tr>
+				</table></form>
+				<div id="schoolslist" data-json="schools"></div>
 			</div>
 
-			<script>
-				//TODO: Group this code with other code, For now it is here for clarity purposes
-				//List capability script
-				//TMP command: $("<div>").html( $("<div>").html("hehe") ).appendTo(".objectInArray")
-
-                var jsonProfile = {
-                    "uid":2,
-                    "name": "Krzysztof",
-                    "name2": "Widacki",
-                    "dateofbirth": "19-04-1998",
-                    "birthofaccount":"21-04-1998",
-                    "email": "krzysztofwidacki@gmail.com",
-                    "tel": "123456789",
-                    "address": "Słoneczna 15",
-                    "address2": "Warsaw 02-540",
-                    "country":"Poland",
-                    "jobexperience": [
-                        {"company":"Acaisoft", "from":"12-12-2017", "to":"1-1-2018"},
-                        {"company":"Google", "from":"12-12-2017", "to":"1-1-2018"},
-                        {"company":"Microsoft", "from":"12-12-2017", "to":"1-1-2018"}
-                    ],
-                    "schools": [
-                        {"name":"Wiśniowa",
-                            "from":"1-12-1212",
-                            "to":"2-12-1212"},
-                        {"name":"Staffa nr 1",
-                            "from":"1-12-1212",
-                            "to":"2-12-1212"},
-                        {"name":"Generic School 3",
-                            "from":"2-11-1318",
-                            "to":"2-1-1290"}
-                    ],
-                    "skills": [
-                        "breathing", "holding two handed swords with one hand"
-                    ],
-                    "acomplishments":{
-                        "interests": [
-                            "Films", "Bikes"
-                        ],
-                        "projects":[
-                            {
-                                "name":"google self driving cars",
-                                "ended":"1-1-2012"
-                            },
-                            {
-                                "name":"cloudlanes",
-                                "ended":"3-2-2013"
-                            }
-                        ],
-                        "courses":[
-                            {
-                                "name":"ccna1course",
-                                "ended":"1-1-2017"
-                            },
-                            {
-                                "name":"ccna2course",
-                                "ended":"2-2-2017"
-                            }
-                        ],
-                        "certificates":[
-                            {
-                                "name":"ccna1",
-                                "expirationDate":"1-1-2017"
-                            },
-                            {
-                                "name":"ccna2",
-                                "expirationDate":"2-2-2017"
-                            }
-                        ],
-                        "languages": [{
-                            "language": "english",
-                            "proficiency": "master"
-                        },
-                            {
-                                "language": "german",
-                                "proficiency": "beginner"
-                            }
-                        ]
-                    },
-                    "friends":[{
-                        "uid":1,
-                        "name": "Paweł",
-                        "name2": "Kłos"
-                    },
-                        {
-                            "uid":3,
-                            "name": "Wojciech",
-                            "name2": "Cejerowski"
-                        }]
-                };
-
-				function addObjectInArray(){
-				    //iterate different objects in array of f.e jobexperience
-					var line;
-					var key;
-					var value;
-				    for(var i = 0, len = jsonProfile.jobexperience.length ; i < len ; i++){
-				        //iterate keys in object (f.e. company, from, to)
-                        for(var j = 0, len = Object.keys( jsonProfile.jobexperience[i] ).length ; j < len ; j++){
-							//console.log(Object.keys(jsonProfile.jobexperience[i])[j]);
-							line = $("<div>").addClass("line");
-							key = $("<span>").addClass("key");
-                            value = $("<span>").addClass("value");
-
-                        }
-
-					}
-					var divTemplate = "<div class='objectInArray'>{1}</div>";
-				    $("#jobexperiencelist").append("<div>");
-				}
-                addObjectInArray();
-
-			</script>
-
-		</div>
+			<!--<div class="section"><form id="jobexperienceform">-->
+				<!--<table><tr><h3>Add job experience:</h3></tr>-->
+					<!--<tr><td>Company name: </td><td><input name="company" id="companyName"/><br></td></tr>-->
+					<!--<tr><td>From date (dd-mm-yyyy):</td><td><input name="from" id="companyFrom"/><br></td></tr>-->
+					<!--<tr><td>To date (dd-mm-yyyy): </td><td><input name="to" id="companyTo"/><br></td></tr>-->
+					<!--<tr><td></td><td><input type="button" onclick="addObjectToArray('jobexperienceform',jsonProfile.jobexperience, 'jobexperiencelist')" value="+ Add"></td></tr>-->
+				<!--</table></form>-->
+				<!--<div id="jobexperiencelist" data-json="jobexperience"></div>-->
+			<!--</div>-->
 		<!--
 		<div class="section"><form>
 		<table>
@@ -203,23 +99,150 @@
 	<div class="footer"></div>
 </body>
 <script>
-	
+    //TODO: Group this code with other code, For now it is here for clarity purposes
+    //List capability script
+    //TMP command: $("<div>").html( $("<div>").html("hehe") ).appendTo(".objectInArray")
 
+    var jsonProfile = {
+        "uid":2,
+        "name": "Krzysztof",
+        "name2": "Widacki",
+        "dateofbirth": "19-04-1998",
+        "birthofaccount":"21-04-1998",
+        "email": "krzysztofwidacki@gmail.com",
+        "tel": "123456789",
+        "address": "Słoneczna 15",
+        "address2": "Warsaw 02-540",
+        "country":"Poland",
+        "jobexperience": [
+            {"company":"Acaisoft",
+                "from":"12-12-2017",
+                "to":"1-1-2018"
+            },
+            {"company":"Google",
+                "from":"12-12-2017",
+                "to":"1-1-2018"
+            },
+            {"company":"Microsoft",
+                "from":"12-12-2017",
+                "to":"1-1-2018"
+            }
+        ],
+        "schools": [
+            {"name":"Wiśniowa",
+                "from":"1-12-1212",
+                "to":"2-12-1212"},
+            {"name":"Staffa nr 1",
+                "from":"1-12-1212",
+                "to":"2-12-1212"},
+            {"name":"Generic School 3",
+                "from":"2-11-1318",
+                "to":"2-1-1290"}
+        ],
+        "skills": [
+            "breathing", "holding two handed swords with one hand"
+        ],
+        "acomplishments":{
+            "interests": [
+                "Films", "Bikes"
+            ],
+            "projects":[
+                {
+                    "name":"google self driving cars",
+                    "ended":"1-1-2012"
+                },
+                {
+                    "name":"cloudlanes",
+                    "ended":"3-2-2013"
+                }
+            ],
+            "courses":[
+                {
+                    "name":"ccna1course",
+                    "ended":"1-1-2017"
+                },
+                {
+                    "name":"ccna2course",
+                    "ended":"2-2-2017"
+                }
+            ],
+            "certificates":[
+                {
+                    "name":"ccna1",
+                    "expirationDate":"1-1-2017"
+                },
+                {
+                    "name":"ccna2",
+                    "expirationDate":"2-2-2017"
+                }
+            ],
+            "languages": [{
+                "language": "english",
+                "proficiency": "master"
+            },
+                {
+                    "language": "german",
+                    "proficiency": "beginner"
+                }
+            ]
+        },
+        "friends":[{
+            "uid":1,
+            "name": "Paweł",
+            "name2": "Kłos"
+        },
+            {
+                "uid":3,
+                "name": "Wojciech",
+                "name2": "Cejerowski"
+            }]
+    };
 
-	function updateProfile( json){
-        $("#name").text(json.name);
-        $("#name2").text(json.name2);
-        $("#age").text(json.age);
-        $("#tel").text(json.tel);
-        $("#address").text(json.address);
-        $("#jobexperience").text(json.jobexperience);
-        $("#schools").text(json.schools);
-        $("#skills").text(json.skills);
-        $("#intrests").text(json.intrests);
-        json.languages.forEach(function (value) {
-            $("#languages").append( value['language'] + " with proficiency: " +value["proficiency"] + "<br>" );
+    function addObjectToArray(form, category, listToAppend){
+        var fields = {};
+        $("#"+form).find("input:not([type=button])").each(function() {
+            fields[this.name] = $(this).val();
         });
-	}
+        category.unshift(fields);
+        updateObjectsInArray(category, listToAppend);
+    }
+    function updateObjectsInArray(category, listToAppend){
+        //iterate different objects in array of f.e jobexperience
+        var obj;
+        var line;
+        var key;
+        var value;
+        $("#"+listToAppend).empty();
+        for(var i = 0 ; i < category.length ; i++){
+            console.log(i);
+            //iterate keys in object (f.e. company, from, to)
+            obj = $("<div>").addClass("objectInArray");
+            for(var j = 0 ; j < Object.keys( category[i] ).length ; j++){
+                //console.log(Object.keys(category[i])[j]);
+                line = $("<div>").addClass("line");
+                key = $("<span>").addClass("key").text( Object.keys(category[i])[j] +": ");
+                value = $("<span>").addClass("value").text( category[i][Object.keys(category[i])[j]]);
+                line.append(key, value).appendTo(obj);	//
+            }
+            //append the X button
+            obj.append($("<div>").addClass("delete").text("X"));
+            obj.appendTo("#"+listToAppend);
+        }
+
+        $('.delete').on('click', function(){
+            //console.log( $('.objectInArray').index($(this).parent()) );
+			console.log(this);
+            jsonProfile[$(this).parents("[data-json]").data("json")].splice($(this).parents(".objectInArray").index($(this).parent()), 1);
+            $(this).parent().remove();
+        });
+    }
+    //usage of function:
+    updateObjectsInArray(jsonProfile.jobexperience, "jobexperiencelist");
+    updateObjectsInArray(jsonProfile.schools, "schoolslist");
+
+
+
+
 	$("#saveBtn").on("click", function(){
 		jsonProfile.name = $("#name").val();
         jsonProfile.name2 = $("#name2").val();
@@ -234,6 +257,6 @@
 
 	});
 
-    updateProfile(jsonProfile);
+    //updateProfile(jsonProfile);
 </script>
 </html>

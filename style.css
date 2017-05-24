@@ -203,6 +203,7 @@ display:block;
 	margin:12px;
 	border:solid 1px rgb(92, 92, 92);
 	border-radius:5px;
+	position:relative;
 }
 
 .objectInArray .line{
@@ -236,3 +237,19 @@ display:block;
 	text-align: left;
 	color: rgb(37, 96, 33);
  }
+.objectInArray .delete{
+	 position:absolute;
+	 right:10px;
+	 top:10px;
+	 color:#034f84;
+	cursor:pointer;
+	-webkit-transition: 0.1s;
+	-moz-transition: 0.1s;
+	-ms-transition: 0.1s;
+	-o-transition: 0.1s;
+	transition: 0.1s;
+ }
+.objectInArray .delete:hover{
+	position:absolute;
+	transform: scale(1.3);
+}
