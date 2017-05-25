@@ -4,7 +4,7 @@ body
 	margin:0;
 	background-image: url("img/4.png");
 	padding-bottom:50px;
-	position: relative;
+	
 	min-height: 95.4%;
 	
 	font-family: 'Roboto Slab', serif;
@@ -12,6 +12,13 @@ body
 	/* Background pattern from Subtle Patterns */
 }
 
+#wraphold
+{
+	position: relative;
+	min-height: 100%;
+	
+	
+}
 
 .header
 {	
@@ -19,20 +26,64 @@ body
 	width: 100%;
 	height: 70px;
 	background-color:#034f84;
+	/* rgb(97,56,98) */
 }
+
+ul{margin:0px;
+padding:0px;}
 
 #logo
 {
+	display:block; 
+	width:70px;
+	height:70px;
 	
+	
+	background-size:70px;
+	border-radius:40px;
+	background-image: url("img/lo.jpg");
+	
+	color: white;
+	
+	text-align: center;
+}
+
+#biglogo
+{
 	color: white;
 	font-size: 65px;
 	text-align: center;
 }
 
+#flex1
+{
+	display: inline-flex;
+	justify-content:flex-start;
+	
+}
+#flex2
+{	position:absolute;
+	right:0px;
+	display: inline-flex;
+	justify-content:flex-end;
+}
+.flexin1
+{
+	
+}
+.flexin2
+{
+	
+}
+.flexin3
+{
+	
+}
+
 .footer
 {
 	position: absolute;
-	right: 0;
+	width: 100%;
 	bottom: 0;
 	left: 0;
 	height: 50px;
@@ -57,6 +108,8 @@ input[type=button], input[type=submit]
 {
 	background-color: #034f84;
 	color: white;
+	width:100px;
+	
 }
 
 table{
@@ -114,7 +167,41 @@ table{
     -ms-flex-align: start;
     align-items: flex-start;
 }
+
+nav{
+	
+	background-color: #034f84; 
+	height: 70px;
+}
 
+li{
+	list-style-type: none;
+	
+	float:left;
+	
+}
+li > input
+{
+	width:70px;
+	height:70px;
+}
+
+	
+#Logout
+{
+	
+	/*position: absolute;
+	right:15px;
+	top: 5px;*/
+	background-image: url("img/pf1.png");
+	border-radius: 50px;
+	background-size: 50px 50px;
+	background-position: 4.7px 4px ;
+	background-repeat: no-repeat;
+	width:60px;
+	height:60px;
+ 
+}
 #react
 {
 	color: white;
@@ -172,29 +259,44 @@ padding: 15px;
 }
 
 #searchInput{
+	margin:10px;
 	width:100px;
 	padding-left: 40px;
 	background-color: white;
     background-image: url('img/sera.png');
-    background-position: 10px 7px; 
+	background-size: 35px 35px;
+    background-position: 5px 5px; 
     background-repeat: no-repeat;
     padding-left: 50px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
 
-#searchInput:focus
+#searchBtn
 {
+	position:static;
+	display:none;
+	width: 100px;
+	
+	
+	
+}
+
+
+#searchInput:focus
+{ 
 width: 500px;
 }
 
 #searchResults-container a{
 display:block;
 	padding:8px;
+	width:100px;
+	height:100px;
 }
 #search-container{
-	position:relative;
-	display:inline-block;
+	
+	
 }
 
 .objectInArray{
