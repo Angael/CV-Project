@@ -18,7 +18,8 @@
 		<table><tr><h3>Edit your name:</h3></tr>
 			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
-			<tr><td></td><td><input type="button" value="Save"></td></tr>
+			<tr><td></td><td><input type="button" onclick="addSimpleValues('name', jsonProfile.name);
+addSimpleValues('name2', jsonProfile.name2);"  value="Save"></td></tr>
 		</table></form>
 		</div>
 		<div class="section"><form>
@@ -32,15 +33,28 @@
 		<div class="section"><form>
 		<table><tr><h3>Edit your birth date:</h3></tr>
 			<tr><td>Birth Date: </td><td><input id="dateofbirth"/><br></td></tr>
-			<tr><td></td><td><input type="button" value="Save"></td></tr>
+			<tr><td></td><td><input type="button" onclick="addSimpleValues('dateofbirth', jsonProfile.dateofbirth)" value="Save"></td></tr>
 		</table></form>
+		</div>
+			<div class="section"><form>
+				<table><tr><h3>Edit your interests:</h3></tr>
+					<tr><td>Interests list (separated with comma ","): </td><td><input id="interests"/><br></td></tr>
+					<tr><td></td><td><input type="button" onclick="addValuesToArray('interests', jsonProfile.interests)" value="Save"></td></tr>
+				</table></form>
+			</div>
+		<div class="section"><form>
+			<table><tr><h3>Edit your skills:</h3></tr>
+				<tr><td>Skill list (separated with comma ","): </td><td><input id="skills"/><br></td></tr>
+				<tr><td></td><td><input type="button" onclick="addValuesToArray('skills', jsonProfile.skills)" value="Save"></td></tr>
+			</table></form>
 		</div>
 		<div class="section"><form>
 		<table><tr><h3>Edit your address:</h3></tr>
 			<tr><td>Adress: </td><td><input id="address"/><br></td></tr>
 			<tr><td>Post-code and City :</td><td><input id="address2"/><br></td></tr>
 			<tr><td>Country: </td><td><input id="country"/><br></td></tr>
-			<tr><td></td><td><input type="button" value="Save"></td></tr>
+			<tr><td></td><td><input type="button" onclick="addSimpleValues('address', jsonProfile.address);
+addSimpleValues('address2', jsonProfile.address2);addSimpleValues('country', jsonProfile.country);" value="Save"></td></tr>
 		</table></form>
 		</div>
 
@@ -64,6 +78,41 @@
 				<div id="schoolslist" data-json="schools"></div>
 			</div>
 
+			<div class="section"><form id="projectsform">
+				<table><tr><h3>Add finished projects:</h3></tr>
+					<tr><td>Project name: </td><td><input name="name" id="projectName"/><br></td></tr>
+					<tr><td>Ended (dd-mm-yyyy): </td><td><input name="ended" id="projectEnded"/><br></td></tr>
+					<tr><td></td><td><input type="button" onclick="addObjectToArray('projectsform',jsonProfile.acomplishments.projects, 'projectslist')" value="+ Add"></td></tr>
+				</table></form>
+				<div id="projectslist" data-json="acomplishments.projects"></div>
+			</div>
+
+			<div class="section"><form id="coursesform">
+				<table><tr><h3>Add finished courses:</h3></tr>
+					<tr><td>Course name: </td><td><input name="name" id="courseName"/><br></td></tr>
+					<tr><td>Ended (dd-mm-yyyy): </td><td><input name="ended" id="courseEnded"/><br></td></tr>
+					<tr><td></td><td><input type="button" onclick="addObjectToArray('coursesform',jsonProfile.acomplishments.courses, 'courseslist')" value="+ Add"></td></tr>
+				</table></form>
+				<div id="courseslist" data-json="acomplishments.courses"></div>
+			</div>
+
+			<div class="section"><form id="certificatesform">
+				<table><tr><h3>Add certificates:</h3></tr>
+					<tr><td>Certificate name: </td><td><input name="name" id="certificateName"/><br></td></tr>
+					<tr><td>Ended (dd-mm-yyyy): </td><td><input name="expirationDate" id="certificateEnded"/><br></td></tr>
+					<tr><td></td><td><input type="button" onclick="addObjectToArray('certificatesform',jsonProfile.acomplishments.certificates, 'certificateslist')" value="+ Add"></td></tr>
+				</table></form>
+				<div id="certificateslist" data-json="acomplishments.certificates"></div>
+			</div>
+
+			<div class="section"><form id="languagesform">
+				<table><tr><h3>Add your languages:</h3></tr>
+					<tr><td>Language name: </td><td><input name="name" id="languagesName"/><br></td></tr>
+					<tr><td>Proficiency: </td><td><input name="Proficiency" id="languagesEnded"/><br></td></tr>
+					<tr><td></td><td><input type="button" onclick="addObjectToArray('languagesform',jsonProfile.acomplishments.languages, 'languageslist')" value="+ Add"></td></tr>
+				</table></form>
+				<div id="languageslist" data-json="acomplishments.languages"></div>
+			</div>
 			<!--<div class="section"><form id="jobexperienceform">-->
 				<!--<table><tr><h3>Add job experience:</h3></tr>-->
 					<!--<tr><td>Company name: </td><td><input name="company" id="companyName"/><br></td></tr>-->
@@ -142,10 +191,10 @@
         "skills": [
             "breathing", "holding two handed swords with one hand"
         ],
+        "interests": [
+            "Films", "Bikes"
+        ],
         "acomplishments":{
-            "interests": [
-                "Films", "Bikes"
-            ],
             "projects":[
                 {
                     "name":"google self driving cars",
@@ -197,6 +246,20 @@
                 "name2": "Cejerowski"
             }]
     };
+var password ={
+    'oldPass' : "Start123"
+}
+
+	function changePassword(oldPass, newPass, newPassRepeat){
+    //query to Database
+    	if($("#"+newPass).val()){ //old password typed correctly
+    	    if($("#"+newPass).val() === $("#"+newPassRepeat).val()){ ///both same passwords
+
+			}
+		}else{
+
+		}
+	}
 
     function addObjectToArray(form, category, listToAppend){
         var fields = {};
@@ -206,12 +269,32 @@
         category.unshift(fields);
         updateObjectsInArray(category, listToAppend);
     }
+    function addValuesToArray(input, category){
+        var field = $("#"+input);
+        category = field.val().split(",");
+        updateValuesInForms(input, category);
+    }
+    function addSimpleValues(input, category){
+        var field = $("#"+input);
+        jsonProfile[input] = field.val();
+        updateSimpleValuesInForms(input, jsonProfile[input]);
+    }
+    function updateSimpleValuesInForms(input, category){
+        var field = $("#"+input);
+        console.log(category);
+        field.val(category);
+	}
+    function updateValuesInForms(input, category){
+        var field = $("#"+input);
+        console.log(category);
+        field.val(category.join(","));
+	}
     function updateObjectsInArray(category, listToAppend){
-        //iterate different objects in array of f.e jobexperience
         var obj;
         var line;
         var key;
         var value;
+        //iterate different objects in array of f.e jobexperience
         $("#"+listToAppend).empty();
         for(var i = 0 ; i < category.length ; i++){
             console.log(i);
@@ -229,20 +312,30 @@
             obj.appendTo("#"+listToAppend);
         }
 
-        $('.delete').on('click', function(){
+        $('#'+listToAppend+' .delete').on('click', function(){
             //console.log( $('.objectInArray').index($(this).parent()) );
 			console.log(this);
-            jsonProfile[$(this).parents("[data-json]").data("json")].splice($(this).parents(".objectInArray").index($(this).parent()), 1);
+			var datajson = $(this).parents("[data-json]").data("json");
+            if (datajson.indexOf('.') > -1)
+            {
+                jsonProfile[datajson.substring(0, datajson.indexOf("."))][datajson.substring(datajson.indexOf('.')+1, datajson.length)].splice($(this).parents(".objectInArray").index($(this).parent()), 1);
+            }else{
+                jsonProfile[datajson].splice($(this).parents(".objectInArray").index($(this).parent()), 1);
+			}
+
             $(this).parent().remove();
         });
     }
-    //usage of function:
+    //Update existing data in jsonProfile:
+    updateValuesInForms('skills', jsonProfile.skills);
+    updateValuesInForms('interests', jsonProfile.interests);
     updateObjectsInArray(jsonProfile.jobexperience, "jobexperiencelist");
     updateObjectsInArray(jsonProfile.schools, "schoolslist");
-
-
-
-
+    updateObjectsInArray(jsonProfile.acomplishments.projects, "projectslist");
+    updateObjectsInArray(jsonProfile.acomplishments.courses, "courseslist");
+    updateObjectsInArray(jsonProfile.acomplishments.certificates, "certificateslist");
+    updateObjectsInArray(jsonProfile.acomplishments.languages, "languageslist");
+/*
 	$("#saveBtn").on("click", function(){
 		jsonProfile.name = $("#name").val();
         jsonProfile.name2 = $("#name2").val();
@@ -255,7 +348,7 @@
         jsonProfile.intrests = $("#intrests").val().split(",");
 
 
-	});
+	});*/
 
     //updateProfile(jsonProfile);
 </script>

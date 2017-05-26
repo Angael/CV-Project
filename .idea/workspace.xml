@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d22085c-c1f2-44b3-b0b7-f9a8d21b14ea" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profileEdit.html" afterPath="$PROJECT_DIR$/profileEdit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,14 +14,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.9">
+    <splitter split-orientation="horizontal" split-proportion="0.539489">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1577">
-                  <caret line="248" column="29" lean-forward="true" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
+                <state relative-caret-position="6448">
+                  <caret line="248" column="24" lean-forward="false" selection-start-line="248" selection-start-column="24" selection-end-line="248" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -30,7 +30,7 @@
           <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/login.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
+                <state relative-caret-position="2860">
                   <caret line="110" column="62" lean-forward="false" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="62" />
                   <folding />
                 </state>
@@ -40,8 +40,8 @@
           <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/profile.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1404">
-                  <caret line="63" column="35" lean-forward="true" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+                <state relative-caret-position="1638">
+                  <caret line="63" column="35" lean-forward="false" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -51,7 +51,17 @@
             <entry file="file://$PROJECT_DIR$/profileEdit.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="26">
-                  <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="44" selection-end-line="208" selection-end-column="56" />
+                  <caret line="101" column="41" lean-forward="false" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="searchUsers.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/searchUsers.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="364">
+                  <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -60,12 +70,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="profileEdit.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/profileEdit.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="914">
-                  <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+                <state relative-caret-position="26">
+                  <caret line="253" column="23" lean-forward="false" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
@@ -85,6 +95,8 @@
       <find>updateprofile</find>
       <find>addObjectToArray</find>
       <find>companyName</find>
+      <find>delete</find>
+      <find>projects</find>
     </findStrings>
     <replaceStrings>
       <replace>category</replace>
@@ -112,10 +124,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1928" />
-    <option name="y" value="-662" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -246,18 +258,20 @@
       <option name="presentableId" value="Default" />
       <updated>1495523119279</updated>
       <workItem from="1495523121155" duration="3128000" />
-      <workItem from="1495608043626" duration="24782000" />
+      <workItem from="1495608043626" duration="25305000" />
+      <workItem from="1495694348699" duration="8139000" />
+      <workItem from="1495780746871" duration="139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45950000" />
+    <option name="totallyTimeSpent" value="54751000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-662" width="1936" height="1176" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.103125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -299,6 +313,86 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6448">
+          <caret line="248" column="24" lean-forward="false" selection-start-line="248" selection-start-column="24" selection-end-line="248" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2860">
+          <caret line="110" column="62" lean-forward="false" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="63" column="35" lean-forward="false" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchUsers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6448">
+          <caret line="248" column="24" lean-forward="true" selection-start-line="248" selection-start-column="24" selection-end-line="248" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2860">
+          <caret line="110" column="62" lean-forward="false" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="63" column="35" lean-forward="true" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchUsers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5408">
+          <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="44" selection-end-line="208" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4342">
@@ -379,25 +473,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/searchUsers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="77" column="34" lean-forward="false" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1404">
-          <caret line="63" column="35" lean-forward="true" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+        <state relative-caret-position="1638">
+          <caret line="63" column="35" lean-forward="false" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="2860">
           <caret line="110" column="62" lean-forward="false" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="62" />
           <folding />
         </state>
@@ -405,8 +491,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
-          <caret line="248" column="29" lean-forward="true" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
+        <state relative-caret-position="6448">
+          <caret line="248" column="24" lean-forward="false" selection-start-line="248" selection-start-column="24" selection-end-line="248" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchUsers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="616" column="22" lean-forward="false" selection-start-line="616" selection-start-column="22" selection-end-line="616" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -414,7 +516,7 @@
     <entry file="file://$PROJECT_DIR$/profileEdit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
-          <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="44" selection-end-line="208" selection-end-column="56" />
+          <caret line="253" column="23" lean-forward="false" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
           <folding />
         </state>
       </provider>
