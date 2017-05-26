@@ -276,3 +276,7 @@ $("#searchInput").on("keyup", function(){
     //console.log(result);
     searchUser($("#searchInput").val());
 });
+function BtnDisplay(){
+    	document.getElementById("searchBtn").style.display="block";}
+	function BtnHide(){
+    	document.getElementById("searchBtn").style.display="none";}
