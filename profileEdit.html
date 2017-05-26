@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
 	<html lang="pl">
 	<meta charset="utf-8" />
@@ -9,7 +8,30 @@
 	<title>Profile Page</title>
 </head>
 <body>
-<div class="header"><img style="display:block; transform:translate(5px, 5px); width:60px; height:60px;  border-radius:40px;" src="img/lo.jpg"/></div>
+<div id="wraphold">
+	<div class="header">
+		<div id="flex1">
+			<div id="logo"></div>
+			<form action>
+			<div id="search-container" class="tile"  style="float:left;" >
+			<input id="searchInput" onfocusout="BtnHide()" onfocus="BtnDisplay()" autocomplete="off"/>
+			<div id="searchResults-container">
+			</div>
+			</div>
+			<div id="flex2">
+			<input type="button"/>
+			<input type="button"/>
+			<input type="button"/>
+			
+			<input id="Logout" value=""type="button"/>
+	
+	</div>
+	</div><input id="searchBtn" type="button" value="Search"/><br>
+				<div id="searchResults-container">
+				</div>
+
+				</div></form>
+			</div>				
 	<div class="centered">
 		<h2>Edit Your Profile</h2>
 
@@ -60,6 +82,7 @@ addSimpleValues('address2', jsonProfile.address2);addSimpleValues('country', jso
 
 		<div class="section"><form id="jobexperienceform">
 			<table><tr><h3>Add job experience:</h3></tr>
+
 				<tr><td>Company name: </td><td><input name="company" id="companyName"/><br></td></tr>
 				<tr><td>From date (dd-mm-yyyy):</td><td><input name="from" id="companyFrom"/><br></td></tr>
 				<tr><td>To date (dd-mm-yyyy): </td><td><input name="to" id="companyTo"/><br></td></tr>
@@ -140,13 +163,16 @@ addSimpleValues('address2', jsonProfile.address2);addSimpleValues('country', jso
 			<tr><td>Languages: </td><td><input id="languages" disabled/><br></td></tr>
 			<tr><input id="saveBtn" type="button" value="Save"/></td></tr>
 		</table>-->
+
 		</div>
 		
 		</form>
 	</div>
-	
+	</div>
 	<div class="footer"></div>
+	</div>
 </body>
+
 <script>
     //TODO: Group this code with other code, For now it is here for clarity purposes
     //List capability script
@@ -255,6 +281,7 @@ var password ={
     	if($("#"+newPass).val()){ //old password typed correctly
     	    if($("#"+newPass).val() === $("#"+newPassRepeat).val()){ ///both same passwords
 
+
 			}
 		}else{
 
@@ -348,8 +375,82 @@ var password ={
         jsonProfile.intrests = $("#intrests").val().split(",");
 
 
-	});*/
 
-    //updateProfile(jsonProfile);
+	});
+	
+	function BtnDisplay(){
+	document.getElementById("searchBtn").style.display="block";}
+	function BtnHide(){
+	document.getElementById("searchBtn").style.display="none";}
+
+    updateProfile(jsonProfile);
+	
+	 /*var settings = {
+
+        "crossDomain": true,
+        "url": "https://reqres.in/api/users/3",
+        "method": "GET",
+        "headers": {
+            "cache-control": "no-cache",
+            "postman-token": "0554329c-c2fa-1524-9653-fc44f2a7c20c"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });*/
+
+    var allUsers = [{
+        "uid":2,
+        "name": "Krzysztof",
+        "name2": "Widacki",
+        "email": "krzysztofwidacki@gmail.com",
+
+    },{
+        "uid":1,
+        "name": "Paweł",
+        "name2": "Kłos",
+        "email": "98asdjwofapixjc@gmail.com",
+
+    },{
+        "uid":3,
+        "name": "Wojciech",
+        "name2": "Cejerowski",
+        "email": "someCejerowski@gmail.com",
+
+    },{
+        "uid":4,
+        "name": "Krzysztof",
+        "name2": "Orecki",
+        "email": "some@gmail.com",
+
+    },
+	];
+    //var result = $.grep(allUsers, function(e){ return e.name == "Krzysztof"; });
+    function searchUser(value){
+        var result = $.grep(allUsers, function(e){
+            var isFound = ((e.name.toLowerCase() +" "+ e.name2.toLowerCase() + " " + e.email.toLowerCase()).match(new RegExp(value, 'gi')));
+            return isFound;
+        });
+		//console.log(result);
+		var list ="";
+        result.forEach(function(val){
+            list += "<a href='user/" + val.uid + "'>" + val.name +" "+ val.name2 + "</a>";
+
+		});
+        $("#searchResults-container").html(list);
+
+	}
+
+
+
+	$("#searchBtn").on("click", function(){
+        //console.log(result);
+        searchUser($("#searchInput").val());
+	});
+    $("#searchInput").on("keyup", function(){
+        //console.log(result);
+        searchUser($("#searchInput").val());
+    });
 </script>
 </html>
