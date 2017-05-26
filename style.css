@@ -1,23 +1,24 @@
 html{height: 100%;}
 body
-{	font-size: 20px;
+{	position: relative;
+	font-size: 20px;
 	margin:0;
 	background-image: url("img/4.png");
-	padding-bottom:50px;
 	
-	min-height: 95.4%;
-	
+	min-height: 100%;
 	font-family: 'Roboto Slab', serif;
-
 	/* Background pattern from Subtle Patterns */
 }
 
-#wraphold
+.shortAF
+{
+	height:100%;
+}
+
+#wrapholder
 {
 	position: relative;
-	min-height: 100%;
-	
-	
+	height: 100%;
 }
 
 .header
@@ -108,7 +109,7 @@ input[type=button], input[type=submit]
 {
 	background-color: #034f84;
 	color: white;
-	width:100px;
+	padding: 15px;
 	
 }
 
@@ -230,7 +231,7 @@ background-color: rgb(245,245,245);
 max-width: 600px;
 padding: 40px;
 border-radius: 15px;
-padding-bottom:40px;
+margin-bottom: 70px;
 
 }
 
