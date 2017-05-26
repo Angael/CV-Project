@@ -280,3 +280,6 @@ function BtnDisplay(){
     	document.getElementById("searchBtn").style.display="block";}
 	function BtnHide(){
     	document.getElementById("searchBtn").style.display="none";}
+
+    	//localStorage logic:
+        console.log(localStorage.jsonProfile);
