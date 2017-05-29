@@ -18,6 +18,7 @@
 					<tr><td>E-mail:</td><td><input class="email" type="email" /></td></tr>
 					<tr><td>Password:</td><td><input class="pass" type="password" /></td></tr>
 					<tr><td></td><td><input class="submit" type="button" value="Zaloguj" /></td></tr>
+					<tr><td></td><td><a href="profile.html"><input class="submitAdmin" type="button" value="Zaloguj default admin" /></a></td></tr>
 				</table>
 			</form>
 		</div>
@@ -40,88 +41,7 @@
 
 
 
-<script>
-	//Hard coded logins
-    var jsonLogins = [{
-  		"login":"krzysztofwidacki@gmail.com",
-		"pass":"Start123"
-	},{
-        "login":"Start123",
-        "pass":"Start123"
-    }
-	];
-
-    //When user clicks submit in login pane
-	//Try to log in:
-    $("#signIn .submit").on("click", function(){
-        //Validate both fields
-        var passIndex =-1;
-        for (var i = 0, len = jsonLogins.length; i < len; i++) {
-            //Check if any field is empty, color it red
-            if($("#signIn .email").val()==="" || $("#signIn .pass").val()==="" || $("#signIn .pass2").val()===""){
-                if($("#signIn .email").val()===""){
-                    $("#signIn .email").css("outline", "solid 1px red");
-                }
-                if($("#signIn .pass").val()===""){
-                    $("#signIn .pass").css("outline", "solid 1px red");
-                }
-                return;
-            }
-
-            var loginCorrect = false;
-            //Check if login exists
-            if(jsonLogins[i].login.toLowerCase() === $("#signIn .email").val().toLowerCase() ){
-  				loginCorrect = true;
-                passIndex = i;
-				break;
-			}
-        }
-        if(passIndex>=0 && passIndex < jsonLogins.length) {
-            if (jsonLogins[passIndex].pass === $("#signIn .pass").val()) {
-                alert("Success!");
-            }else{
-                alert("Fail! Invalid Credentials");
-            }
-        }else{
-            alert("Fail! No such user found");
-		}
-	});
-
-
-
-	//On register click
-	//Try to register user
-	//TODO: Validate empty, invalid emails, empty passwords, have some requirements
-    $("#signUp .submit").on("click", function(){
-        //Check if any field is empty, color it red
-        if($("#signUp .email").val()==="" || $("#signUp .pass").val()==="" || $("#signUp .pass2").val()===""){
-            if($("#signUp .email").val()===""){
-                $("#signUp .email").css("outline", "solid 1px red");
-            }
-            if($("#signUp .pass").val()===""){
-                $("#signUp .pass").css("outline", "solid 1px red");
-            }
-            if($("#signUp .pass2").val()===""){
-                $("#signUp .pass2").css("outline", "solid 1px red");
-            }
-            return;
-        }
-        for (var i = 0, len = jsonLogins.length; i < len; i++) {
-            var emailExists = false;
-            if(jsonLogins[i].login.toLowerCase() === $("#signUp .email").val().toLowerCase() ){
-                emailExists = true;
-                alert("Email exists");
-                return;
-            }
-        }
-
-        if($("#signUp .pass").val() !== $("#signUp .pass2").val() ){
-            alert("Passwords are different!");
-        }else{
-            alert("Account created!");
-        }
-    });
-</script>
+<script src="login.js" ></script>
 
 </body>
 

@@ -10,9 +10,27 @@
 	<title>Profile Page</title>
 </head>
 <body>
-<div class="header"><img style="display:block; transform:translate(5px, 5px); width:60px; height:60px;  border-radius:40px;" src="img/lo.jpg"/></div>
+<div class="header"><div class="header">
+		<div id="flex1">
+			<div id="logo"></div>
+			<form action>
+			<div id="search-container" class="tile"  style="float:left;" >
+			<input id="searchInput" onclick="BtnDisplay()" onblur="BtnHide()" autocomplete="off"/>
+			<div id="searchResults-container">
+			</div>
+			
+			</div>
+			<div id="flex2">
+			<input type="button"/>
+			<input type="button"/>
+			<input type="button"/>
+			
+			<a href="login.html"><input id="Logout" value=""type="button"/></a>
+	
+	</div></div>
 <div class="centered">
-		<h2>Your Profile</h2>
+		<div id="flexLog" ><h2 class="flex-i1">Your Profile</h2>
+		<a href="profileEdit.html"><div id="edit" class="flex-i2"></div></a></div>
 		<div id="profile-container" class="tile" >
 			First Name: <span id="name"></span><br>
 			Second Name: <span id="name2"></span><br>

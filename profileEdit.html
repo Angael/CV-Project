@@ -16,7 +16,7 @@
 			<div id="logo"></div>
 			<form action>
 			<div id="search-container" class="tile"  style="float:left;" >
-			<input id="searchInput" onfocusout="BtnHide()" onfocus="BtnDisplay()" autocomplete="off"/>
+			<input id="searchInput" onclick="BtnDisplay()" onblur="BtnHide()" autocomplete="off"/>
 			<div id="searchResults-container">
 			</div>
 			
@@ -26,12 +26,11 @@
 			<input type="button"/>
 			<input type="button"/>
 			
-			<input id="Logout" value=""type="button"/>
+			<a href="login.html"><input id="Logout" value=""type="button"/></a>
 	
 	</div>
 	</div><input id="searchBtn" type="button" value="Search"/><br>
-				<div id="searchResults-container">
-				</div>
+
 
 				</div></form>
 			</div>				
@@ -139,33 +138,7 @@ addSimpleValues('address2', jsonProfile.address2);addSimpleValues('country', jso
 				</table></form>
 				<div id="languageslist" data-json="acomplishments.languages"></div>
 			</div>
-			<!--<div class="section"><form id="jobexperienceform">-->
-				<!--<table><tr><h3>Add job experience:</h3></tr>-->
-					<!--<tr><td>Company name: </td><td><input name="company" id="companyName"/><br></td></tr>-->
-					<!--<tr><td>From date (dd-mm-yyyy):</td><td><input name="from" id="companyFrom"/><br></td></tr>-->
-					<!--<tr><td>To date (dd-mm-yyyy): </td><td><input name="to" id="companyTo"/><br></td></tr>-->
-					<!--<tr><td></td><td><input type="button" onclick="addObjectToArray('jobexperienceform',jsonProfile.jobexperience, 'jobexperiencelist')" value="+ Add"></td></tr>-->
-				<!--</table></form>-->
-				<!--<div id="jobexperiencelist" data-json="jobexperience"></div>-->
-			<!--</div>-->
-		<!--
-		<div class="section"><form>
-		<table>
-			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
-			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
-			<tr><td></td><td><input type="submit"></td></tr>
-		</table></form>
-		</div>
-			<tr><td>Age: </td><td><input id="age"/><br></td></tr>
-			<tr><td>Tel: </td><td><input id="tel"/><br></td></tr>
-			<tr><td>Address: </td><td><input id="address"/><br></td></tr>
-			<tr><td>Job Experience: </td><td><input id="jobexperience"/><br></td></tr>
-			<tr><td>Schools: </td><td><input id="schools"/><br></td></tr>
-			<tr><td>Skills: </td><td><input id="skills"/><br></td></tr>
-			<tr><td>Intrests: </td><td><input id="intrests"/><br></td></tr>
-			<tr><td>Languages: </td><td><input id="languages" disabled/><br></td></tr>
-			<tr><input id="saveBtn" type="button" value="Save"/></td></tr>
-		</table>-->
+			
 
 		</div>
 		
@@ -175,6 +148,9 @@ addSimpleValues('address2', jsonProfile.address2);addSimpleValues('country', jso
 	<div class="footer"></div>
 	</div>
 </body>
+
+
+<script src="profileEdit.js">
 
 </script>
 </html>
