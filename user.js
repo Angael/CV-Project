@@ -1,6 +1,19 @@
 
 var jsonProfile = JSON.parse(localStorage.jsonProfile);
 
+//Get GET parameter of user
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
 function _calculateAge(birthday) { // birthday is a dd-mm-yyyy string
     var from = birthday.split("-");
     birthday = new Date(from[2], from[1] - 1, from[0]);
@@ -39,37 +52,17 @@ function updateProfile( json){
     }
 }
 
-updateProfile(jsonProfile);
-
 var allUsers = JSON.parse(localStorage.allUsers);
+function getUser(){
 
-//var result = $.grep(allUsers, function(e){ return e.name == "Krzysztof"; });
-function searchUser(value){
-    var result = $.grep(allUsers, function(e){
-        var isFound = ((e.name.toLowerCase() +" "+ e.name2.toLowerCase() + " " + e.email.toLowerCase()).match(new RegExp(value, 'gi')));
-        return isFound;
-    });
-    //console.log(result);
-    var list ="";
-    result.forEach(function(val){
-        list += "<a href='user/" + val.uid + "'>" + val.name +" "+ val.name2 + "</a>";
-
-    });
-    $("#searchResults-container").html(list);
-
+    for (var i = 0; i < allUsers.length; i++) {
+        console.log(findGetParameter('id'));
+        //Check if any field is empty, color it red
+        if(allUsers[i].uid==parseInt(findGetParameter('id'))){
+            return i;
+        }
+    }
 }
-
-
-
-$("#searchBtn").on("click", function(){
-    //console.log(result);
-    searchUser($("#searchInput").val());
-});
-$("#searchInput").on("keyup", function(){
-    //console.log(result);
-    searchUser($("#searchInput").val());
-});
-
-
-//localStorage logic:
-console.log(localStorage.jsonProfile);
+console.log(getUser() + "hehe");
+// console.log(findGetParameter('id'));
+updateProfile(allUsers[getUser()]);

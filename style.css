@@ -33,6 +33,18 @@ body
 ul{margin:0px;
 padding:0px;}
 
+#edit
+{
+	background-image: url("img/edit.png");
+	background-size: 50px ;
+	width: 50px;
+	height: 50px;
+	background-color: #034f84; 
+	border-radius: 40px;
+	border: solid 1px black;
+	margin: solid 1px black;
+}
+
 #logo
 {
 	display:block; 
@@ -56,6 +68,51 @@ padding:0px;}
 	text-align: center;
 }
 
+ #flexLog
+ { display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
+
+.flex-i1 {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+	.flex-i2{
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+	
 #flex1
 {
 	display: inline-flex;
@@ -417,10 +474,12 @@ width: 500px;
 #searchResults-container{
 	position:absolute;
 	/**top:50px;*/
-	min-width: 160px;
+	min-width: 400px;
 	min-height:0px;
 	background:white;
 	color:black;
+	left:10px;
+	top:57px;
 }
 
 #searchInput{

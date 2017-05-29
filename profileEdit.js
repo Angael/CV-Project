@@ -19,6 +19,17 @@ function changePassword(oldPass, newPass, newPassRepeat){
     }
 }
 
+function changeElementInAllUsersArray( ) {
+    var parsed = JSON.parse(localStorage.allUsers)
+    for (var i in parsed) {
+        if (parsed[i].uid == jsonProfile.uid) {
+            parsed[i] = jsonProfile;
+            localStorage.allUsers = JSON.stringify(parsed);
+            break; //Stop this loop, we found it!
+        }
+    }
+}
+
 function addObjectToArray(form, category, listToAppend){
     var fields = {};
     $("#"+form).find("input:not([type=button])").each(function() {
@@ -27,18 +38,21 @@ function addObjectToArray(form, category, listToAppend){
     category.unshift(fields);
     updateObjectsInArray(category, listToAppend);
     localStorage.jsonProfile = JSON.stringify(jsonProfile);
+    changeElementInAllUsersArray();
 }
 function addValuesToArray(input, category){
     var field = $("#"+input);
     category = field.val().split(",");
     updateValuesInForms(input, category);
     localStorage.jsonProfile = JSON.stringify(jsonProfile);
+    changeElementInAllUsersArray();
 }
 function addSimpleValues(input, category){
     var field = $("#"+input);
     jsonProfile[input] = field.val();
     updateSimpleValuesInForms(input, jsonProfile[input]);
     localStorage.jsonProfile = JSON.stringify(jsonProfile);
+    changeElementInAllUsersArray();
 }
 function updateSimpleValuesInForms(input, category){
     var field = $("#"+input);
@@ -142,32 +156,8 @@ updateObjectsInArray(jsonProfile.acomplishments.languages, "languageslist");
  console.log(response);
  });*/
 
-var allUsers = [{
-    "uid":2,
-    "name": "Krzysztof",
-    "name2": "Widacki",
-    "email": "krzysztofwidacki@gmail.com",
+var allUsers = JSON.parse(localStorage.allUsers);
 
-},{
-    "uid":1,
-    "name": "Paweł",
-    "name2": "Kłos",
-    "email": "98asdjwofapixjc@gmail.com",
-
-},{
-    "uid":3,
-    "name": "Wojciech",
-    "name2": "Cejerowski",
-    "email": "someCejerowski@gmail.com",
-
-},{
-    "uid":4,
-    "name": "Krzysztof",
-    "name2": "Orecki",
-    "email": "some@gmail.com",
-
-}
-];
 //var result = $.grep(allUsers, function(e){ return e.name == "Krzysztof"; });
 function searchUser(value){
     var result = $.grep(allUsers, function(e){
@@ -194,10 +184,7 @@ $("#searchInput").on("keyup", function(){
     //console.log(result);
     searchUser($("#searchInput").val());
 });
-function BtnDisplay(){
-    	document.getElementById("searchBtn").style.display="block";}
-	function BtnHide(){
-    	document.getElementById("searchBtn").style.display="none";}
+
 
     	//localStorage logic:
         console.log(localStorage.jsonProfile);
