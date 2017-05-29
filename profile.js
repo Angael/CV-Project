@@ -41,34 +41,6 @@ function updateProfile( json){
 
 updateProfile(jsonProfile);
 
-var allUsers = JSON.parse(localStorage.allUsers);
-
-//var result = $.grep(allUsers, function(e){ return e.name == "Krzysztof"; });
-function searchUser(value){
-    var result = $.grep(allUsers, function(e){
-        var isFound = ((e.name.toLowerCase() +" "+ e.name2.toLowerCase() + " " + e.email.toLowerCase()).match(new RegExp(value, 'gi')));
-        return isFound;
-    });
-    //console.log(result);
-    var list ="";
-    result.forEach(function(val){
-        list += "<a href='user/" + val.uid + "'>" + val.name +" "+ val.name2 + "</a>";
-
-    });
-    $("#searchResults-container").html(list);
-
-}
-
-
-
-$("#searchBtn").on("click", function(){
-    //console.log(result);
-    searchUser($("#searchInput").val());
-});
-$("#searchInput").on("keyup", function(){
-    //console.log(result);
-    searchUser($("#searchInput").val());
-});
 
 
 //localStorage logic:

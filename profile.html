@@ -15,7 +15,7 @@
 	<div id="logo"></div>
 	<div id="search-container" class="tile"  style="float:left;" >
 
-		<input id="searchInput" onfocus="$('#searchResults-container').show(50)" onblur="$('#searchResults-container').hide(100)" autocomplete="off"/>
+		<input id="searchInput" onfocus="$('#searchResults-container').show(50)" onblur="$('#searchResults-container').delay( 100 ).hide(100)" autocomplete="off"/>
 
 		<div id="searchResults-container">
 		</div>
@@ -23,9 +23,8 @@
 	</div>
 	<div id="flex2">
 
-		<input type="button"/>
-		<input type="button"/>
-		<input type="button"/>
+		<a href="profile.html"><input id="profile"  type="button"/></a>
+		<a href="userlist.html"><input id="list"  type="button"/></a>
 		<a href="login.html"><input id="Logout" value=""type="button"/></a>
 
 	</div>
@@ -34,7 +33,6 @@
 			<h2 class="flex-i1">Your Profile</h2>
 			<a href="profileEdit.html"><div id="edit" class="flex-i2"></div></a>
 		</div>
-
 		<div id="profile-container" class="tile" >
 			First Name: <span id="name"></span><br>
 			Second Name: <span id="name2"></span><br>
@@ -57,9 +55,11 @@
 
 		</div>
 	</div>
+	</div>
 
 </body>
 
 
 <script src="profile.js"></script>
+<script src="searchHeader.js"></script>
 </html>

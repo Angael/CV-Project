@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+	<html lang="pl">
+	<meta charset="utf-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<title>UsersList</title>
+</head>
+<body><div class="header">
+		<div id="flex1">
+			<div id="logo"></div>
+			<form action>
+			<div id="search-container" class="tile"  style="float:left;" >
+			<input id="searchInput"  onfocus="$('#searchResults-container').show(50)" onblur="$('#searchResults-container').delay( 100 ).hide(100)"  autocomplete="off"/>
+			<div id="searchResults-container">
+			</div>
+			
+			</div>
+			<div id="flex2">
+			<a href="profile.html"><input id="profile"  type="button"/></a>
+				<a href="userlist.html"><input id="list"  type="button"/></a>
+			
+			<a href="login.html"><input id="Logout" value=""type="button"/></a>
+	
+	</div></div></div>
+	<div class="centered"><h2>Users List</h2>
+	<div   >
+			
+			<table id="users-container"></table>
+			
+	</div>
+<div class="footer"></div>
+<script src="userlist.js"/>
+		<script src="searchHeader.js"></script>
+</body>

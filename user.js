@@ -66,3 +66,16 @@ function getUser(){
 console.log(getUser() + "hehe");
 // console.log(findGetParameter('id'));
 updateProfile(allUsers[getUser()]);
+
+
+
+
+
+$("#searchBtn").on("click", function(){
+    //console.log(result);
+    searchUser($("#searchInput").val());
+});
+$("#searchInput").on("keyup", function(){
+    //console.log(result);
+    searchUser($("#searchInput").val());
+});
