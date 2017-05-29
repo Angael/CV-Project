@@ -79,9 +79,9 @@ function updateObjectsInArray(category, listToAppend){
         var datajson = $(this).parents("[data-json]").data("json");
         if (datajson.indexOf('.') > -1)
         {
-            jsonProfile[datajson.substring(0, datajson.indexOf("."))][datajson.substring(datajson.indexOf('.')+1, datajson.length)].splice($(this).parents(".objectInArray").index($(this).parent()), 1);
+            jsonProfile[datajson.substring(0, datajson.indexOf("."))][datajson.substring(datajson.indexOf('.')+1, datajson.length)].splice($(this).parents(".objectInArray").index(), 1);
         }else{
-            jsonProfile[datajson].splice($(this).parents(".objectInArray").index($(this).parent()), 1);
+            jsonProfile[datajson].splice($(this).parents(".objectInArray").index(), 1);
         }
 
         $(this).parent().remove();
@@ -89,6 +89,13 @@ function updateObjectsInArray(category, listToAppend){
     });
 }
 //Update existing data in jsonProfile:
+updateSimpleValuesInForms('name', jsonProfile.name);
+updateSimpleValuesInForms('name2', jsonProfile.name2);
+updateSimpleValuesInForms('dateofbirth', jsonProfile.dateofbirth);
+updateSimpleValuesInForms('address', jsonProfile.address);
+updateSimpleValuesInForms('address2', jsonProfile.address2);
+updateSimpleValuesInForms('country', jsonProfile.country);
+
 updateValuesInForms('skills', jsonProfile.skills);
 updateValuesInForms('interests', jsonProfile.interests);
 updateObjectsInArray(jsonProfile.jobexperience, "jobexperiencelist");
