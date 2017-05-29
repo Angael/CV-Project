@@ -2,100 +2,7 @@
 //List capability script
 //TMP command: $("<div>").html( $("<div>").html("hehe") ).appendTo(".objectInArray")
 
-var jsonProfile = {
-    "uid":2,
-    "name": "Krzysztof",
-    "name2": "Widacki",
-    "dateofbirth": "19-04-1998",
-    "birthofaccount":"21-04-1998",
-    "email": "krzysztofwidacki@gmail.com",
-    "tel": "123456789",
-    "address": "Słoneczna 15",
-    "address2": "Warsaw 02-540",
-    "country":"Poland",
-    "jobexperience": [
-        {"company":"Acaisoft",
-            "from":"12-12-2017",
-            "to":"1-1-2018"
-        },
-        {"company":"Google",
-            "from":"12-12-2017",
-            "to":"1-1-2018"
-        },
-        {"company":"Microsoft",
-            "from":"12-12-2017",
-            "to":"1-1-2018"
-        }
-    ],
-    "schools": [
-        {"name":"Wiśniowa",
-            "from":"1-12-1212",
-            "to":"2-12-1212"},
-        {"name":"Staffa nr 1",
-            "from":"1-12-1212",
-            "to":"2-12-1212"},
-        {"name":"Generic School 3",
-            "from":"2-11-1318",
-            "to":"2-1-1290"}
-    ],
-    "skills": [
-        "breathing", "holding two handed swords with one hand"
-    ],
-    "interests": [
-        "Films", "Bikes"
-    ],
-    "acomplishments":{
-        "projects":[
-            {
-                "name":"google self driving cars",
-                "ended":"1-1-2012"
-            },
-            {
-                "name":"cloudlanes",
-                "ended":"3-2-2013"
-            }
-        ],
-        "courses":[
-            {
-                "name":"ccna1course",
-                "ended":"1-1-2017"
-            },
-            {
-                "name":"ccna2course",
-                "ended":"2-2-2017"
-            }
-        ],
-        "certificates":[
-            {
-                "name":"ccna1",
-                "expirationDate":"1-1-2017"
-            },
-            {
-                "name":"ccna2",
-                "expirationDate":"2-2-2017"
-            }
-        ],
-        "languages": [{
-            "language": "english",
-            "proficiency": "master"
-        },
-            {
-                "language": "german",
-                "proficiency": "beginner"
-            }
-        ]
-    },
-    "friends":[{
-        "uid":1,
-        "name": "Paweł",
-        "name2": "Kłos"
-    },
-        {
-            "uid":3,
-            "name": "Wojciech",
-            "name2": "Cejerowski"
-        }]
-};
+var jsonProfile = JSON.parse(localStorage.jsonProfile);
 var password ={
     'oldPass' : "Start123"
 }
@@ -119,16 +26,19 @@ function addObjectToArray(form, category, listToAppend){
     });
     category.unshift(fields);
     updateObjectsInArray(category, listToAppend);
+    localStorage.jsonProfile = JSON.stringify(jsonProfile);
 }
 function addValuesToArray(input, category){
     var field = $("#"+input);
     category = field.val().split(",");
     updateValuesInForms(input, category);
+    localStorage.jsonProfile = JSON.stringify(jsonProfile);
 }
 function addSimpleValues(input, category){
     var field = $("#"+input);
     jsonProfile[input] = field.val();
     updateSimpleValuesInForms(input, jsonProfile[input]);
+    localStorage.jsonProfile = JSON.stringify(jsonProfile);
 }
 function updateSimpleValuesInForms(input, category){
     var field = $("#"+input);
@@ -175,6 +85,7 @@ function updateObjectsInArray(category, listToAppend){
         }
 
         $(this).parent().remove();
+        localStorage.jsonProfile = JSON.stringify(jsonProfile);
     });
 }
 //Update existing data in jsonProfile:

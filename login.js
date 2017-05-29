@@ -83,9 +83,9 @@
 
     //local storage scripts:
     if(localStorage.jsonProfile == undefined){
-        localStorage.jsonProfile = {
+        localStorage.jsonProfile = JSON.stringify({
             "uid":2,
-            "name": "Krzysztof",
+            "name": "Lolz",
             "name2": "Widacki",
             "dateofbirth": "19-04-1998",
             "birthofaccount":"21-04-1998",
@@ -176,5 +176,5 @@
                     "name": "Wojciech",
                     "name2": "Cejerowski"
                 }]
-        };
+        });
     }
