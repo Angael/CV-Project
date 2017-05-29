@@ -200,7 +200,7 @@
 
 },{
     "uid":4,
-    "name": "BardziejTestowy",
+    "name": "Bardziej",
     "name2": "Orecki",
     "email": "some@gmail.com",
 

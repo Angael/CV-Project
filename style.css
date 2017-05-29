@@ -15,6 +15,51 @@ body
 	height:100%;
 }
 
+#back
+{
+	background-image: url("img/back.png");
+	background-size: 50px ;
+	width: 50px;
+	height: 50px;
+	background-color: #034f84; 
+	border-radius: 40px;
+	border: solid 1px black;
+	margin: solid 1px black;
+}
+
+#list
+{
+	background-image: url("img/list.png");
+	background-size: 70px;
+	width:70px;
+	height:70px;
+	
+}
+
+#list:hover
+{
+	border: 1px solid white;
+}
+
+#profile
+{
+	
+	background-image: url("img/prof.png");
+	background-size: 70px;
+	width:70px;
+	height:70px;
+}
+
+#back:hover
+{
+	border: 1px solid white;
+}
+
+#edit:hover
+{ 
+	border: 1px solid white;
+}
+
 #wrapholder
 {
 	position: relative;
@@ -370,6 +415,11 @@ table{
 }
 
 #profile-container span:not([class])
+{
+	color:red;
+} 
+
+#users-container span:not([class])
 {
 	color:red;
 } 
