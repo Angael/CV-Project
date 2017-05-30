@@ -1,3 +1,21 @@
+$.ajax({
+    "crossDomain": true,
+    "url": "http://localhost:4000/api/",
+    "method": "GET",
+    "headers": {
+        "cache-control": "no-cache"
+    },
+    "success":function(data){
+        console.log("Success ");
+        console.log(data);
+        all = data;
+    },
+    "error":function(data){
+        console.log("Error ");
+        console.log(data);
+    }
+
+});
 
 var all = JSON.parse(localStorage.allUsers);
 function searchUser(value){
