@@ -1,12 +1,11 @@
 var express    = require('express');        // call express
+var fs = require('fs');
 var app        = express();                 // define our app using express
-
 // var bodyParser = require('body-parser');
 // var Bear     = require('./app/models/bear');
 //
-// var http = require('http');
+//var http = require('http');
 // var url = require('url');
-// var fs = require('fs');
 //
 // http.createServer(function (req, res) {
 //     var q = url.parse(req.url, true);
@@ -66,7 +65,13 @@ router.route('/users')
 
     .get(function(req, res) {
         console.log("get many");
-        res.send("send all users in json");
+        fs.readFile('allUsers.json', function(err, data) {
+            //res.writeHead(200, {'Content-Type': 'text/html'});
+            //res.write(data);
+            res.send(data);
+            res.end();
+        });
+        //res.send("send all users in json");
     });
 
 router.route('/users/:user_id')
@@ -74,10 +79,24 @@ router.route('/users/:user_id')
 // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
     .get(function(req, res) {
         console.log("get single");
+
     });
 
+routerHome.route("/").get( function(req, res){
+    console.log("home directory");
+    fs.readFile('./public/login.html', function (err, html) {
+        if (err) {
+            throw err;
+        }
+        http.createServer(function(request, response) {
+            response.writeHeader(200, {"Content-Type": "text/html"});
+            response.write(html);
+            response.end();
+        }).listen(8000);
+    });
+});
 app.use('/api', router);
-app.use('/', router);
+app.use('/', routerHome);
 app.use(express.static('public')); // Allows for files in public to be accessible like so: "localhost:4000/login.html"
 
 // START THE SERVER
