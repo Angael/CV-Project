@@ -2,7 +2,7 @@ var all = "";
 
 $.ajax({
     "crossDomain": true,
-    "url": "http://localhost:4000/api/",
+    "url": "http://localhost:4000/api/users",
     "method": "GET",
     "headers": {
         "cache-control": "no-cache"
