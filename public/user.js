@@ -1,6 +1,27 @@
+ var all = "";
+ 
+ $.ajax({
+    "crossDomain": true,
+    "url": "http://localhost:4000/api/",
+    "method": "GET",
+    "headers": {
+        "cache-control": "no-cache"
+    },
+    "success":function(data){
+        console.log("Success ");
+        console.log(data);
+        all = data;
+    },
+    "error":function(data){
+        console.log("Error ");
+        console.log(data);
+    }
 
-var jsonProfile = JSON.parse(localStorage.jsonProfile);
+});
 
+
+//var jsonProfile = JSON.parse(localStorage.jsonProfile);
+var jsonProfile = JSON.parse(all);
 //Get GET parameter of user
 function findGetParameter(parameterName) {
     var result = null,

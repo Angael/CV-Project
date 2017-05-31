@@ -1,3 +1,5 @@
+var all = "";
+
 $.ajax({
     "crossDomain": true,
     "url": "http://localhost:4000/api/",
@@ -17,7 +19,8 @@ $.ajax({
 
 });
 
-var all = JSON.parse(localStorage.allUsers);
+//var all = JSON.parse(localStorage.allUsers);
+var all = JSON.parse(all);
 function searchUser(value){
     var result = $.grep(all, function(e){
         var isFound = ((e.name.toLowerCase() +" "+ e.name2.toLowerCase() + " " + e.email.toLowerCase()).match(new RegExp(value, 'gi')));
