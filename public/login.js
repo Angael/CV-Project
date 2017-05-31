@@ -1,6 +1,11 @@
 
+	
+
+
+
+
 	//Hard coded logins
-    var allUsers;
+  
 
     //When user clicks submit in login pane
 	//Try to log in:
@@ -72,7 +77,7 @@
             alert("Passwords are different!");
         }else{
 
-            var currentAllUsers = JSON.parse(localStorage.allUsers);
+            var currentAllUsers = JSON.parse(allUsers);
             var accountObject = {
                 "uid": (currentAllUsers[currentAllUsers.length-1]["uid"]+1),
                 "name": $("#signUp .name").val(),
@@ -81,7 +86,7 @@
                 "pass": $("#signUp .pass").val()
             };
             currentAllUsers.push(accountObject);
-            localStorage.allUsers = JSON.stringify(currentAllUsers);
+            allUsers = JSON.stringify(currentAllUsers);
             allUsers = currentAllUsers;
             alert("Account created!");
         }
@@ -186,8 +191,8 @@
         });
     }
 	
-	if(localStorage.allUsers == undefined){ // type localStorage.clean() to reset page to defualts:
-        localStorage.allUsers = JSON.stringify([{
+	if(allUsers == undefined){ // type localStorage.clean() to reset page to defualts:
+        allUsers = JSON.stringify([{
             "uid":2,
             "name": "Krzysztof",
             "name2": "Widacki",
@@ -471,8 +476,7 @@
                 }]
         }]);
 	}
-    allUsers = JSON.parse(localStorage.allUsers);
-
+   
 
 
     //localStorage logic:

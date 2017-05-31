@@ -73,7 +73,7 @@ function updateProfile( json){
     }
 }
 
-var allUsers = JSON.parse(localStorage.allUsers);
+
 function getUser(){
 
     for (var i = 0; i < allUsers.length; i++) {

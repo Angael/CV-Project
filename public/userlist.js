@@ -1,5 +1,5 @@
 
-var a = localStorage.allUsers;
+var a = allUsers;
 var b = JSON.parse(a);
 var string ="";
 
@@ -13,7 +13,7 @@ for (var i = 0, len = b.length; i < len; i++)
 document.getElementById("users-container").innerHTML=string;
 
 
-var allUsers = JSON.parse(localStorage.allUsers);
+
 function searchUser(value){
     var result = $.grep(allUsers, function(e){
         var isFound = ((e.name.toLowerCase() +" "+ e.name2.toLowerCase() + " " + e.email.toLowerCase()).match(new RegExp(value, 'gi')));
