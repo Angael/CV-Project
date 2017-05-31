@@ -120,11 +120,9 @@ routerHome.route("/").get( function(req, res){
         if (err) {
             throw err;
         }
-        http.createServer(function(request, response) {
-            response.writeHeader(200, {"Content-Type": "text/html"});
-            response.write(html);
-            response.end();
-        }).listen(8000);
+        res.writeHeader(200, {"Content-Type": "text/html"});
+        res.write(html);
+        res.end();
     });
 });
 app.use(bodyParser.json());
