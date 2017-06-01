@@ -2,29 +2,7 @@ var express    = require('express');        // call express
 var fs = require('fs');
 var app        = express();
 var bodyParser = require('body-parser');
-// var bodyParser = require('body-parser');
-// var Bear     = require('./app/models/bear');
-//
-//var http = require('http');
-// var url = require('url');
-//
-// http.createServer(function (req, res) {
-//     var q = url.parse(req.url, true);
-//     var filename = "." + q.pathname;
-//     fs.readFile(filename, function(err, data) {
-//         if (err) {
-//             res.writeHead(404, {});
-//             return res.end("404 Not Found");
-//         }
-//         res.writeHead(200, {});
-//         res.write(data);
-//         return res.end();
-//     });
-// }).listen(1234);
-
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-
+var cookieParser = require('cookie-parser');
 
 
 var port = process.env.PORT || 4000;        // set our port
@@ -35,6 +13,7 @@ var port = process.env.PORT || 4000;        // set our port
 
 var router = express.Router();              // get an instance of the express Router
 var routerHome = express.Router();
+var backendRouter = express.Router();
 
 // This fires whenever there is a request - middleware to use for all requests
 var timesUsedSinceServerStart =0;
@@ -55,21 +34,32 @@ router.get('/', function(req, res) {
 // all of our routes will be prefixed with /api
 
 router.route('/users')
-    .post(function(req, res) {
+    .post(function(req, res) { //data is object already
         console.log("post");
-        console.log(req.params);
-        try {
-            var json = JSON.parse(data);
-            console.log("yeah");
-        } catch (e) {
-            console.log("oh no its not json");
-            // not json
-        }
+        console.log(req.body);
+        //console.log(req.headers);
+        // console.log(req.body);
+
+        var data = req.body;
+
+        // try {
+        //     console.log(JSON.parse(req.body));
+        //     console.log("yeah");
+        // } catch (e) {
+        //     console.log("oh no its not json");
+        //     // not json
+        // }
         //res.status(666).send
         //res.send("send all users in json");
+        data.status = "success";
+        res.cookie('acaisoft', 'super random value');
+        res.header('acaisoft-token', 'secret');
+        res.send(200, data);
     })
 
     .get(function(req, res) {
+        console.log(req.headers);
+
         console.log("get many");
         fs.readFile('allUsers.json', 'utf8',  function(err, data) {
             res.writeHead(200, {'Content-Type': 'application/json'});
@@ -88,16 +78,10 @@ router.route('/users/:user_id')
         fs.readFile('allUsers.json', 'utf8',  function(err, data) {
             dataParsed = JSON.parse(data);
             if(getUser(dataParsed, req.params.user_id) != -1){ //user is found in array
-
                 response = JSON.stringify(dataParsed[getUser(dataParsed, req.params.user_id)]);
-
             }else{
                 response = JSON.stringify({"error":"no user found with uid =="+req.params.user_id})
-
             }
-
-            //console.log(getUser(dataParsed, req.params.user_id));
-            //console.log(response);
 
             res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
             res.write(response);
@@ -113,6 +97,11 @@ function getUser(userList,hisId){
     }
     return -1;
 }
+function auth(req){
+    //get cookie
+    //check if cookie is uid of some user
+    //respond with true if yes
+}
 
 routerHome.route("/").get( function(req, res){
     console.log("home directory");
@@ -125,8 +114,38 @@ routerHome.route("/").get( function(req, res){
         res.end();
     });
 });
+
+backendRouter.route('/login')
+    .post(function(req, res) { //data is object already
+        console.log("somebody tries to login");
+        var postData = req.body;
+        var foundUser;
+        var file = fs.readFileSync('allUsers.json', 'utf8')
+        var dataParsed = JSON.parse(file);
+
+        //Check cookies
+        console.log("COOKIES FROM CV YEAAAAAHHHHHHH");
+        console.log(req.cookies);
+
+        //get user with this email
+        foundUser = dataParsed.filter(function(i){
+            return (i.email == postData.login) ;
+        });
+        //check if password matches
+        if(foundUser[0].pass == postData.pass){
+            res.cookie('SUPER-SECRET-TOKEN-CV', foundUser[0].uid); // for now a simple uid, totally hackable
+        }else{
+        }
+        //res.header('acaisoft-token', 'secret'); TODO: cool secret way of authorizing, using js tho
+        res.status(200).end();
+
+
+    });
+
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/backend', backendRouter);
 app.use('/api', router);
 app.use('/', routerHome);
 app.use(express.static('public')); // Allows for files in public to be accessible like so: "localhost:4000/login.html"

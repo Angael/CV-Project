@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+	<html lang="pl">
+	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<title>Profile Page</title>
+
+	</head>
+<body>
+<script>
+	console.log("start ok");
+    var login = "krzysztofwidacki@gmail.com";
+    var pass = "Start123";
+    var data = {
+        "login":login,
+        "pass":pass
+    };
+
+    $.ajax({
+        "url": "/backend/login",
+        "contentType": "application/json; charset=utf-8",
+        "method": "POST",
+        "data": JSON.stringify(data),
+        "headers": {
+            "cache-control": "no-cache"
+        },
+        "success":function(data){
+            console.log("Success ");
+            //$("body").append(JSON.stringify(data));
+            window.location.replace("profile.html");
+        },
+        "error":function(data){
+            console.log("Error ");
+            $("body").append(JSON.stringify(data));
+            console.log(data);
+        }
+
+    });
+
+</script>

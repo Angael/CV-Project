@@ -3,9 +3,7 @@
 //TMP command: $("<div>").html( $("<div>").html("hehe") ).appendTo(".objectInArray")
 
 var jsonProfile = JSON.parse(localStorage.jsonProfile);
-var password ={
-    'oldPass' : "Start123"
-}
+
 
 function changePassword(oldPass, newPass, newPassRepeat){
     //query to Database
@@ -47,13 +45,24 @@ function addValuesToArray(input, category){
     localStorage.jsonProfile = JSON.stringify(jsonProfile);
     changeElementInAllUsersArray();
 }
-function addSimpleValues(input, category){
+function addSimpleValues(input, validateFunction){
+    if(!validateFunction(input)){
+        console.log("validation failed");
+        return;
+    }
     var field = $("#"+input);
     jsonProfile[input] = field.val();
     updateSimpleValuesInForms(input, jsonProfile[input]);
     localStorage.jsonProfile = JSON.stringify(jsonProfile);
     changeElementInAllUsersArray();
 }
+// function addSimpleValues(input){ //version without validation
+//     var field = $("#"+input);
+//     jsonProfile[input] = field.val();
+//     updateSimpleValuesInForms(input, jsonProfile[input]);
+//     localStorage.jsonProfile = JSON.stringify(jsonProfile);
+//     changeElementInAllUsersArray();
+// }
 function updateSimpleValuesInForms(input, category){
     var field = $("#"+input);
     console.log(category);
@@ -118,6 +127,37 @@ updateObjectsInArray(jsonProfile.acomplishments.projects, "projectslist");
 updateObjectsInArray(jsonProfile.acomplishments.courses, "courseslist");
 updateObjectsInArray(jsonProfile.acomplishments.certificates, "certificateslist");
 updateObjectsInArray(jsonProfile.acomplishments.languages, "languageslist");
+
+function validateDate(input){
+    var val = $("#"+input).val();
+    var now = new Date();
+    now.setHours(0,0,0,0);
+    if((new Date(val) !== "Invalid Date") && !isNaN(new Date(val)) && new Date(val) < now){
+        //$("#"+input).prop("disabled", false);
+        $("#"+input).css("outline", "none");
+        return true;
+    }else{
+        //$("#"+input).prop("disabled", true);
+        $("#"+input).css("outline", "solid 1px red");
+        return false;
+    }
+}
+function validateName(input){
+    var val = $("#"+input).val();
+    if(/^\w+$/.test(val)){
+        //$("#"+input).prop("disabled", false);
+        $("#"+input).css("outline", "none");
+        return true;
+    }else{
+        //$("#"+input).prop("disabled", true);
+        $("#"+input).css("outline", "solid 1px red");
+        return false;
+    }
+}
+function validateAlwaysOK(){
+    return true;
+}
+
 /*
  $("#saveBtn").on("click", function(){
  jsonProfile.name = $("#name").val();

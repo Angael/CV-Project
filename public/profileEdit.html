@@ -44,8 +44,8 @@
 		<table><tr><h3>Edit your name:</h3></tr>
 			<tr><td>First Name: </td><td><input id="name"/><br></td></tr>
 			<tr><td>Second Name: </td><td><input id="name2"/><br></td></tr>
-			<tr><td></td><td><input type="button" onclick="addSimpleValues('name', jsonProfile.name);
-addSimpleValues('name2', jsonProfile.name2);"  value="Save"></td></tr>
+			<tr><td></td><td><input type="button" onclick="addSimpleValues('name', validateName);
+addSimpleValues('name2', validateName);"  value="Save"></td></tr>
 		</table></form>
 		</div>
 		<div class="section"><form>
@@ -58,8 +58,8 @@ addSimpleValues('name2', jsonProfile.name2);"  value="Save"></td></tr>
 		</div>
 		<div class="section"><form>
 		<table><tr><h3>Edit your birth date:</h3></tr>
-			<tr><td>Birth Date: </td><td><input id="dateofbirth"/><br></td></tr>
-			<tr><td></td><td><input type="button" onclick="addSimpleValues('dateofbirth', jsonProfile.dateofbirth)" value="Save"></td></tr>
+			<tr><td>Birth Date (mm-dd-yyyy): </td><td><input id="dateofbirth"/><br></td></tr>
+			<tr><td></td><td><input type="button" onclick="addSimpleValues('dateofbirth', validateDate)" value="Save"></td></tr>
 		</table></form>
 		</div>
 			<div class="section"><form>
@@ -79,8 +79,8 @@ addSimpleValues('name2', jsonProfile.name2);"  value="Save"></td></tr>
 			<tr><td>Adress: </td><td><input id="address"/><br></td></tr>
 			<tr><td>Post-code and City :</td><td><input id="address2"/><br></td></tr>
 			<tr><td>Country: </td><td><input id="country"/><br></td></tr>
-			<tr><td></td><td><input type="button" onclick="addSimpleValues('address', jsonProfile.address);
-addSimpleValues('address2', jsonProfile.address2);addSimpleValues('country', jsonProfile.country);" value="Save"></td></tr>
+			<tr><td></td><td><input type="button" onclick="addSimpleValues('address',validateAlwaysOK);
+addSimpleValues('address2', validateAlwaysOK);addSimpleValues('country', validateName);" value="Save"></td></tr>
 		</table></form>
 		</div>
 
@@ -90,7 +90,7 @@ addSimpleValues('address2', jsonProfile.address2);addSimpleValues('country', jso
 				<tr><td>Company name: </td><td><input name="company" id="companyName"/><br></td></tr>
 				<tr><td>From date (dd-mm-yyyy):</td><td><input name="from" id="companyFrom"/><br></td></tr>
 				<tr><td>To date (dd-mm-yyyy): </td><td><input name="to" id="companyTo"/><br></td></tr>
-				<tr><td></td><td><input type="button" onclick="addObjectToArray('jobexperienceform',jsonProfile.jobexperience, 'jobexperiencelist')" value="+ Add"></td></tr>
+				<tr><td></td><td><input type="button" onclick="addObjectToArray('jobexperienceform',jsonProfile.jobexperience, 'jobexperiencelist', [validateAlwaysOK, validateDate, validateDate] /*TODO MAKE FUNCTION ACCEPT VALIDATION*/)" value="+ Add"></td></tr>
 			</table></form>
 			<div id="jobexperiencelist" data-json="jobexperience"></div>
 		</div>
