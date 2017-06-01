@@ -36,7 +36,7 @@ router.get('/', function(req, res) {
 router.route('/users')
     .post(function(req, res) { //data is object already
         console.log("post");
-        console.log(req.body);
+        //console.log(req.body);
         //console.log(req.headers);
         // console.log(req.body);
 
@@ -58,9 +58,9 @@ router.route('/users')
     })
 
     .get(function(req, res) {
-        console.log(req.headers);
+        //console.log(req.headers);
 
-        console.log("get many");
+        console.log("get many users");
         fs.readFile('allUsers.json', 'utf8',  function(err, data) {
             res.writeHead(200, {'Content-Type': 'application/json'});
             res.write(data);
@@ -74,7 +74,7 @@ router.route('/users/:user_id')
 
 // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
     .get(function(req, res) {
-        console.log("get single");
+        console.log("get single user");
         fs.readFile('allUsers.json', 'utf8',  function(err, data) {
             dataParsed = JSON.parse(data);
             if(getUser(dataParsed, req.params.user_id) != -1){ //user is found in array
@@ -89,7 +89,7 @@ router.route('/users/:user_id')
         });
     });
 
-function getUser(userList,hisId){
+function getUser(userList, hisId){
     for (var i = 0; i < userList.length; i++) {
         if(userList[i].uid==hisId){
             return i; //return index of user with uid == hisId
@@ -97,11 +97,26 @@ function getUser(userList,hisId){
     }
     return -1;
 }
-function auth(req){
+function auth(userList, req){
     //get cookie
-    //check if cookie is uid of some user
-    //respond with true if yes
+    if(req.cookies['SUPER-SECRET-TOKEN-CV']!== undefined){
+        var secret_cookie = req.cookies['SUPER-SECRET-TOKEN-CV'];
+        for (var i = 0; i < userList.length; i++) {
+            if(userList[i] == secret_cookie){
+                //cool we found the uid
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+routerHome.use( function(req, res, next){
+    console.log("routerHome always calls me");
+    var file = fs.readFileSync('allUsers.json', 'utf8')
+    auth(file, req);
+    next();
+});
 
 routerHome.route("/").get( function(req, res){
     console.log("home directory");
@@ -122,10 +137,10 @@ backendRouter.route('/login')
         var foundUser;
         var file = fs.readFileSync('allUsers.json', 'utf8')
         var dataParsed = JSON.parse(file);
-
-        //Check cookies
-        console.log("COOKIES FROM CV YEAAAAAHHHHHHH");
-        console.log(req.cookies);
+        //
+        // //Check cookies
+        // console.log("COOKIES FROM CV YEAAAAAHHHHHHH");
+        // console.log(req.cookies);
 
         //get user with this email
         foundUser = dataParsed.filter(function(i){
