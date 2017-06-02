@@ -19,9 +19,8 @@ $.ajax({
 
 });
 
-//var all = JSON.parse(localStorage.allUsers);
-var all = JSON.parse(all);
-function searchUser(value){
+function searchUser(value){ //TODO move functionality to server, and only ajax it for
+    //Idea: -Interval of 200, makes ajax not spam, if another keypress then cancel and new interval
     var result = $.grep(all, function(e){
         var isFound = ((e.name.toLowerCase() +" "+ e.name2.toLowerCase() + " " + e.email.toLowerCase()).match(new RegExp(value, 'gi')));
         return isFound;
@@ -33,7 +32,6 @@ function searchUser(value){
 
     });
     $("#searchResults-container").html(list);
-
 }
 
 

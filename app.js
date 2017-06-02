@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
 
 router.route('/users')
     .post(function(req, res) { //data is object already
-        console.log("post");
+        console.log("Create user");
         //console.log(req.body);
         //console.log(req.headers);
         // console.log(req.body);
@@ -51,10 +51,10 @@ router.route('/users')
         // }
         //res.status(666).send
         //res.send("send all users in json");
-        data.status = "success";
+
         res.cookie('acaisoft', 'super random value');
         res.header('acaisoft-token', 'secret');
-        res.send(200, data);
+        res.status(200).send(data);
     })
 
     .get(function(req, res) {
@@ -111,12 +111,12 @@ function auth(userList, req){
     }
 }
 
-routerHome.use( function(req, res, next){
-    console.log("routerHome always calls me");
-    var file = fs.readFileSync('allUsers.json', 'utf8')
-    auth(file, req);
-    next();
-});
+// routerHome.use( function(req, res, next){
+//     console.log("routerHome always calls me");
+//     var file = fs.readFileSync('allUsers.json', 'utf8')
+//     auth(file, req);
+//     next();
+// });
 
 routerHome.route("/").get( function(req, res){
     console.log("home directory");
@@ -130,33 +130,67 @@ routerHome.route("/").get( function(req, res){
     });
 });
 
-backendRouter.route('/login')
+backendRouter.route('/login') //when user is logging in
     .post(function(req, res) { //data is object already
         console.log("somebody tries to login");
-        var postData = req.body;
+        var postData = req.body; //should already be post request
         var foundUser;
-        var file = fs.readFileSync('allUsers.json', 'utf8')
+        var file = fs.readFileSync('allUsers.json', 'utf8');
         var dataParsed = JSON.parse(file);
-        //
-        // //Check cookies
-        // console.log("COOKIES FROM CV YEAAAAAHHHHHHH");
-        // console.log(req.cookies);
-
         //get user with this email
         foundUser = dataParsed.filter(function(i){
             return (i.email == postData.login) ;
         });
-        //check if password matches
-        if(foundUser[0].pass == postData.pass){
-            res.cookie('SUPER-SECRET-TOKEN-CV', foundUser[0].uid); // for now a simple uid, totally hackable
-        }else{
+        if(foundUser.length !== 1){
+            res.status(401).send('Cant find specified user');
+            return;
         }
-        //res.header('acaisoft-token', 'secret'); TODO: cool secret way of authorizing, using js tho
-        res.status(200).end();
+        //check if password matches
+        if(foundUser[0].pass === postData.pass){
+            res.cookie('SUPER-SECRET-TOKEN-CV', foundUser[0].uid); // for now a simple uid, totally hackable
+            //login successful
+            res.status(200).end();
+        }else{
+            res.status(401).send('Bad password');
+            return;
+        }
+        //res.header('acaisoft-token', 'secret'); TODO: cool secret way of authorizing, using js tho (lelvjs)
+    });
+
+backendRouter.route('/auth') //when user is logging in
+    .get(function(req, res) { //data is object already
+        console.log("auth-ring right now"); // auth fail
+        if(req.cookies["SUPER-SECRET-TOKEN-CV"] === undefined){
+            console.log("cookie it doesn't exist"); // auth fail
+            res.status(401).send('Auth failed');
+            return;
+        }
+
+
+
+        //check if user exists
+        var foundUser;
+        var file = fs.readFileSync('allUsers.json', 'utf8');
+        var dataParsed = JSON.parse(file);
+        foundUser = dataParsed.filter(function(i){
+            return (i.uid === parseInt(req.cookies["SUPER-SECRET-TOKEN-CV"])) ;
+        });
+        if(foundUser.length !== 1) {
+            res.status(401).send('Cant find specified user');
+            return;
+        }
+        // console.log("auth went ok");
+        // console.log(foundUser);
+        res.status(200).json(foundUser[0]);
+        //Ok se we found user what do we now do with him ?
+        // We need to check his id is its the same with cookie
+        //What do we return? A profile
 
 
     });
 
+app.set('views', __dirname + '/public');
+app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

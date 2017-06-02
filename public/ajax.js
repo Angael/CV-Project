@@ -17,8 +17,7 @@ function ajaxLoginPost(){
     };
 
     $.ajax({
-        "crossDomain": true,
-        "url": "http://localhost:4000/backend/login",
+        "url": "/backend/login",
         "contentType": "application/json; charset=utf-8",
         "method": "POST",
         "data": JSON.stringify(data),
@@ -27,19 +26,30 @@ function ajaxLoginPost(){
         },
         "success":function(data){
             console.log("Success ");
-            $("body").append("asdasd" + JSON.stringify(data));
+            //$("body").append(JSON.stringify(data));
             window.location.replace("profile.html");
         },
         "error":function(data){
             console.log("Error ");
-            $("body").append("asdasd" + data);
+            //$("body").append(JSON.stringify(data));
             console.log(data);
         }
 
     });
 }
 
-function setWhoIAm(id){
+function ajaxAuth(success, error){ //returns your profile if your cookie is ok
+    $.ajax({
+        "url": "/backend/auth",
+        "contentType": "application/json; charset=utf-8",
+        "method": "GET",
+        "headers": {
+            "cache-control": "no-cache"
+        },
+        "success":success, //potential bugs
+        "error":error
 
-	//document.cookie = id;
+    });
+
+
 }

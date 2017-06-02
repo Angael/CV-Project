@@ -1,5 +1,18 @@
+var jsonProfile = {};
+function authSuccess(data){
+    console.log("Success ");
+    console.log(data);
+    jsonProfile = data;
+updateProfile(jsonProfile);
+}
+function authFail(data){
+    console.log("user isn't already logged in, must do it now ");
+    console.log(data);
+    window.location.replace("login.html"); //automatic redirect cause user is already logged in
+}
 
-var jsonProfile = JSON.parse(localStorage.jsonProfile);
+ajaxAuth(authSuccess, authFail);
+
 
 function _calculateAge(birthday) { // birthday is a dd-mm-yyyy string
     var from = birthday.split("-");
@@ -39,9 +52,9 @@ function updateProfile( json){
     }
 }
 
-updateProfile(jsonProfile);
+//updateProfile(jsonProfile);
 
 
 
 //localStorage logic:
-console.log(localStorage.jsonProfile);
+//console.log(localStorage.jsonProfile);

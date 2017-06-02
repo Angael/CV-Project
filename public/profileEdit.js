@@ -2,7 +2,20 @@
 //List capability script
 //TMP command: $("<div>").html( $("<div>").html("hehe") ).appendTo(".objectInArray")
 
-var jsonProfile = JSON.parse(localStorage.jsonProfile);
+var jsonProfile = {};
+function authSuccess(data){
+    console.log("Success ");
+    console.log(data);
+    jsonProfile = data;
+    updateAll();
+}
+function authFail(data){
+    console.log("user isn't already logged in, must do it now ");
+    console.log(data);
+    window.location.replace("login.html"); //automatic redirect cause user is already logged in
+}
+
+ajaxAuth(authSuccess, authFail);
 
 
 function changePassword(oldPass, newPass, newPassRepeat){
@@ -112,21 +125,24 @@ function updateObjectsInArray(category, listToAppend){
     });
 }
 //Update existing data in jsonProfile:
-updateSimpleValuesInForms('name', jsonProfile.name);
-updateSimpleValuesInForms('name2', jsonProfile.name2);
-updateSimpleValuesInForms('dateofbirth', jsonProfile.dateofbirth);
-updateSimpleValuesInForms('address', jsonProfile.address);
-updateSimpleValuesInForms('address2', jsonProfile.address2);
-updateSimpleValuesInForms('country', jsonProfile.country);
+function updateAll(){
+    updateSimpleValuesInForms('name', jsonProfile.name);
+    updateSimpleValuesInForms('name2', jsonProfile.name2);
+    updateSimpleValuesInForms('dateofbirth', jsonProfile.dateofbirth);
+    updateSimpleValuesInForms('address', jsonProfile.address);
+    updateSimpleValuesInForms('address2', jsonProfile.address2);
+    updateSimpleValuesInForms('country', jsonProfile.country);
 
-updateValuesInForms('skills', jsonProfile.skills);
-updateValuesInForms('interests', jsonProfile.interests);
-updateObjectsInArray(jsonProfile.jobexperience, "jobexperiencelist");
-updateObjectsInArray(jsonProfile.schools, "schoolslist");
-updateObjectsInArray(jsonProfile.acomplishments.projects, "projectslist");
-updateObjectsInArray(jsonProfile.acomplishments.courses, "courseslist");
-updateObjectsInArray(jsonProfile.acomplishments.certificates, "certificateslist");
-updateObjectsInArray(jsonProfile.acomplishments.languages, "languageslist");
+    updateValuesInForms('skills', jsonProfile.skills);
+    updateValuesInForms('interests', jsonProfile.interests);
+    updateObjectsInArray(jsonProfile.jobexperience, "jobexperiencelist");
+    updateObjectsInArray(jsonProfile.schools, "schoolslist");
+    updateObjectsInArray(jsonProfile.acomplishments.projects, "projectslist");
+    updateObjectsInArray(jsonProfile.acomplishments.courses, "courseslist");
+    updateObjectsInArray(jsonProfile.acomplishments.certificates, "certificateslist");
+    updateObjectsInArray(jsonProfile.acomplishments.languages, "languageslist");
+}
+updateAll();
 
 function validateDate(input){
     var val = $("#"+input).val();
