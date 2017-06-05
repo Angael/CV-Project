@@ -1,4 +1,4 @@
-# CV-Project
+# CV-Project (OUTDATED INFO)
 
 <h2>To run this web application:</h2>
 1. node app.js <br>
